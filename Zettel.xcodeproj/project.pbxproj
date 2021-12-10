@@ -7,21 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785AB46F273A692D000B329B /* Zettel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB46E273A692D000B329B /* Zettel.swift */; };
+		785AB471273A6B24000B329B /* ZettelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB470273A6B24000B329B /* ZettelData.swift */; };
+		786ABADE273D157600F97D37 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786ABADD273D157600F97D37 /* WidgetKit.framework */; };
+		786ABAE0273D157600F97D37 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786ABADF273D157600F97D37 /* SwiftUI.framework */; };
+		786ABAE3273D157600F97D37 /* ZettelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ABAE2273D157600F97D37 /* ZettelWidget.swift */; };
+		786ABAE5273D157800F97D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786ABAE4273D157800F97D37 /* Assets.xcassets */; };
+		786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		786ABAF0273D167C00F97D37 /* ZettelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB470273A6B24000B329B /* ZettelData.swift */; };
+		786ABAF1273D168000F97D37 /* Zettel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB46E273A692D000B329B /* Zettel.swift */; };
+		786ABAF2273D1FC900F97D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF352737CF99005D67BF /* Assets.xcassets */; };
 		788DBF322737CF96005D67BF /* ZettelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DBF312737CF96005D67BF /* ZettelApp.swift */; };
 		788DBF342737CF96005D67BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DBF332737CF96005D67BF /* ContentView.swift */; };
 		788DBF362737CF99005D67BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF352737CF99005D67BF /* Assets.xcassets */; };
 		788DBF392737CF99005D67BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF382737CF99005D67BF /* Preview Assets.xcassets */; };
+		78F54D3F2747B139001C88C1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F54D3E2747B139001C88C1 /* Intents.framework */; };
+		78F54D422747B139001C88C1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F54D412747B139001C88C1 /* IntentHandler.swift */; };
+		78F54D462747B139001C88C1 /* CustomIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78F54D3D2747B139001C88C1 /* CustomIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78F54D4B2747B158001C88C1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 78F54D4A2747B158001C88C1 /* Intents.intentdefinition */; };
+		78FCF011276206050032E2DC /* ZettelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF010276206050032E2DC /* ZettelView.swift */; };
+		78FCF0132762119C0032E2DC /* ZettelHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF0122762119C0032E2DC /* ZettelHistory.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		786ABAE7273D157800F97D37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DBF262737CF96005D67BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 786ABADA273D157600F97D37;
+			remoteInfo = ZettelWidgetExtension;
+		};
+		78F54D442747B139001C88C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DBF262737CF96005D67BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78F54D3C2747B139001C88C1;
+			remoteInfo = CustomIntents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		786ABAEA273D157800F97D37 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed App Extensions */,
+				78F54D462747B139001C88C1 /* CustomIntents.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		785AB46E273A692D000B329B /* Zettel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zettel.swift; sourceTree = "<group>"; };
+		785AB470273A6B24000B329B /* ZettelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelData.swift; sourceTree = "<group>"; };
+		786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ZettelWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		786ABADD273D157600F97D37 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		786ABADF273D157600F97D37 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		786ABAE2273D157600F97D37 /* ZettelWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelWidget.swift; sourceTree = "<group>"; };
+		786ABAE4273D157800F97D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		786ABAE6273D157800F97D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		786ABAEE273D15B800F97D37 /* Zettel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Zettel.entitlements; sourceTree = "<group>"; };
+		786ABAEF273D162C00F97D37 /* ZettelWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZettelWidgetExtension.entitlements; sourceTree = "<group>"; };
 		788DBF2E2737CF96005D67BF /* Zettel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zettel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DBF312737CF96005D67BF /* ZettelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelApp.swift; sourceTree = "<group>"; };
 		788DBF332737CF96005D67BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		788DBF352737CF99005D67BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788DBF382737CF99005D67BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78F54D3D2747B139001C88C1 /* CustomIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CustomIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		78F54D3E2747B139001C88C1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		78F54D412747B139001C88C1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		78F54D432747B139001C88C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78F54D4A2747B158001C88C1 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		78FCC6C3273D4BEA00972F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		78FCF010276206050032E2DC /* ZettelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelView.swift; sourceTree = "<group>"; };
+		78FCF0122762119C0032E2DC /* ZettelHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		786ABAD8273D157600F97D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786ABAE0273D157600F97D37 /* SwiftUI.framework in Frameworks */,
+				786ABADE273D157600F97D37 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DBF2B2737CF96005D67BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,13 +104,54 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78F54D3A2747B139001C88C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F54D3F2747B139001C88C1 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		785AB46D273A6911000B329B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				785AB46E273A692D000B329B /* Zettel.swift */,
+				785AB470273A6B24000B329B /* ZettelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		786ABADC273D157600F97D37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				786ABADD273D157600F97D37 /* WidgetKit.framework */,
+				786ABADF273D157600F97D37 /* SwiftUI.framework */,
+				78F54D3E2747B139001C88C1 /* Intents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		786ABAE1273D157600F97D37 /* ZettelWidget */ = {
+			isa = PBXGroup;
+			children = (
+				786ABAE2273D157600F97D37 /* ZettelWidget.swift */,
+				786ABAE4273D157800F97D37 /* Assets.xcassets */,
+				786ABAE6273D157800F97D37 /* Info.plist */,
+			);
+			path = ZettelWidget;
+			sourceTree = "<group>";
+		};
 		788DBF252737CF96005D67BF = {
 			isa = PBXGroup;
 			children = (
+				786ABAEF273D162C00F97D37 /* ZettelWidgetExtension.entitlements */,
 				788DBF302737CF96005D67BF /* Zettel */,
+				786ABAE1273D157600F97D37 /* ZettelWidget */,
+				78F54D402747B139001C88C1 /* CustomIntents */,
+				786ABADC273D157600F97D37 /* Frameworks */,
 				788DBF2F2737CF96005D67BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				788DBF2E2737CF96005D67BF /* Zettel.app */,
+				786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */,
+				78F54D3D2747B139001C88C1 /* CustomIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +169,13 @@
 		788DBF302737CF96005D67BF /* Zettel */ = {
 			isa = PBXGroup;
 			children = (
+				78FCC6C3273D4BEA00972F7A /* Info.plist */,
+				786ABAEE273D15B800F97D37 /* Zettel.entitlements */,
 				788DBF312737CF96005D67BF /* ZettelApp.swift */,
 				788DBF332737CF96005D67BF /* ContentView.swift */,
+				78FCF0122762119C0032E2DC /* ZettelHistory.swift */,
+				78FCF010276206050032E2DC /* ZettelView.swift */,
+				785AB46D273A6911000B329B /* Model */,
 				788DBF352737CF99005D67BF /* Assets.xcassets */,
 				788DBF372737CF99005D67BF /* Preview Content */,
 			);
@@ -67,9 +190,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		78F54D402747B139001C88C1 /* CustomIntents */ = {
+			isa = PBXGroup;
+			children = (
+				78F54D412747B139001C88C1 /* IntentHandler.swift */,
+				78F54D432747B139001C88C1 /* Info.plist */,
+				78F54D4A2747B158001C88C1 /* Intents.intentdefinition */,
+			);
+			path = CustomIntents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		786ABADA273D157600F97D37 /* ZettelWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786ABAED273D157800F97D37 /* Build configuration list for PBXNativeTarget "ZettelWidgetExtension" */;
+			buildPhases = (
+				786ABAD7273D157600F97D37 /* Sources */,
+				786ABAD8273D157600F97D37 /* Frameworks */,
+				786ABAD9273D157600F97D37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZettelWidgetExtension;
+			productName = ZettelWidgetExtension;
+			productReference = 786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		788DBF2D2737CF96005D67BF /* Zettel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 788DBF3C2737CF99005D67BF /* Build configuration list for PBXNativeTarget "Zettel" */;
@@ -77,15 +227,35 @@
 				788DBF2A2737CF96005D67BF /* Sources */,
 				788DBF2B2737CF96005D67BF /* Frameworks */,
 				788DBF2C2737CF96005D67BF /* Resources */,
+				786ABAEA273D157800F97D37 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				786ABAE8273D157800F97D37 /* PBXTargetDependency */,
+				78F54D452747B139001C88C1 /* PBXTargetDependency */,
 			);
 			name = Zettel;
 			productName = Zettel;
 			productReference = 788DBF2E2737CF96005D67BF /* Zettel.app */;
 			productType = "com.apple.product-type.application";
+		};
+		78F54D3C2747B139001C88C1 /* CustomIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78F54D492747B139001C88C1 /* Build configuration list for PBXNativeTarget "CustomIntents" */;
+			buildPhases = (
+				78F54D392747B139001C88C1 /* Sources */,
+				78F54D3A2747B139001C88C1 /* Frameworks */,
+				78F54D3B2747B139001C88C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomIntents;
+			productName = CustomIntents;
+			productReference = 78F54D3D2747B139001C88C1 /* CustomIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -94,11 +264,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					786ABADA273D157600F97D37 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					788DBF2D2737CF96005D67BF = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					78F54D3C2747B139001C88C1 = {
+						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
@@ -116,11 +292,22 @@
 			projectRoot = "";
 			targets = (
 				788DBF2D2737CF96005D67BF /* Zettel */,
+				786ABADA273D157600F97D37 /* ZettelWidgetExtension */,
+				78F54D3C2747B139001C88C1 /* CustomIntents */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		786ABAD9273D157600F97D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786ABAF2273D1FC900F97D37 /* Assets.xcassets in Resources */,
+				786ABAE5273D157800F97D37 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DBF2C2737CF96005D67BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,21 +317,120 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78F54D3B2747B139001C88C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		786ABAD7273D157600F97D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786ABAE3273D157600F97D37 /* ZettelWidget.swift in Sources */,
+				786ABAF0273D167C00F97D37 /* ZettelData.swift in Sources */,
+				786ABAF1273D168000F97D37 /* Zettel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DBF2A2737CF96005D67BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				788DBF342737CF96005D67BF /* ContentView.swift in Sources */,
+				785AB471273A6B24000B329B /* ZettelData.swift in Sources */,
+				78FCF011276206050032E2DC /* ZettelView.swift in Sources */,
 				788DBF322737CF96005D67BF /* ZettelApp.swift in Sources */,
+				785AB46F273A692D000B329B /* Zettel.swift in Sources */,
+				78FCF0132762119C0032E2DC /* ZettelHistory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78F54D392747B139001C88C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F54D4B2747B158001C88C1 /* Intents.intentdefinition in Sources */,
+				78F54D422747B139001C88C1 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		786ABAE8273D157800F97D37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 786ABADA273D157600F97D37 /* ZettelWidgetExtension */;
+			targetProxy = 786ABAE7273D157800F97D37 /* PBXContainerItemProxy */;
+		};
+		78F54D452747B139001C88C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78F54D3C2747B139001C88C1 /* CustomIntents */;
+			targetProxy = 78F54D442747B139001C88C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		786ABAEB273D157800F97D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ZettelWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDR8Y54N77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZettelWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ZettelWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.ZettelWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		786ABAEC273D157800F97D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ZettelWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDR8Y54N77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZettelWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ZettelWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.ZettelWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		788DBF3A2737CF99005D67BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -264,26 +550,29 @@
 		788DBF3D2737CF99005D67BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Zettel/Zettel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zettel/Preview Content\"";
 				DEVELOPMENT_TEAM = XDR8Y54N77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Zettel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.7III.Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -294,27 +583,80 @@
 		788DBF3E2737CF99005D67BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Zettel/Zettel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zettel/Preview Content\"";
 				DEVELOPMENT_TEAM = XDR8Y54N77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Zettel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.7III.Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		78F54D472747B139001C88C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDR8Y54N77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CustomIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.CustomIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78F54D482747B139001C88C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDR8Y54N77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CustomIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.CustomIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,6 +666,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		786ABAED273D157800F97D37 /* Build configuration list for PBXNativeTarget "ZettelWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786ABAEB273D157800F97D37 /* Debug */,
+				786ABAEC273D157800F97D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		788DBF292737CF96005D67BF /* Build configuration list for PBXProject "Zettel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -338,6 +689,15 @@
 			buildConfigurations = (
 				788DBF3D2737CF99005D67BF /* Debug */,
 				788DBF3E2737CF99005D67BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78F54D492747B139001C88C1 /* Build configuration list for PBXNativeTarget "CustomIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78F54D472747B139001C88C1 /* Debug */,
+				78F54D482747B139001C88C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
