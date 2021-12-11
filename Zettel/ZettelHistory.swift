@@ -15,37 +15,44 @@ struct ZettelHistory: View {
     
     @Binding var isPresented: Bool
     
-
+    @Namespace var bottomID
     
     var body: some View {
         GeometryReader { geo in
-            ZStack {
-                Color("BackgroundColor")
-                    .ignoresSafeArea()
-
+            
                 ScrollView(showsIndicators: false) {
-                        
+                    ScrollViewReader { proxy in
                         VStack {
                             ForEach(zettelData.zettel.reversed()) { zettel in
- 
-                                    ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, screenSize: geo.size)
-                                        .padding(.vertical, 10)
+                                
+                                ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, screenSize: geo.size)
+                                    .padding(.vertical, 10)
+                                
                                 
                             }
+                            .onAppear() {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    withAnimation {
+                                        proxy.scrollTo(bottomID)
+                                    }
+                                
+                                }
+                            }
+                            
                         }
-                        .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                        .id(bottomID)
+                        .frame(minWidth: geo.size.width, minHeight: geo.size.height, alignment: .center)
+                        
+                    }
+                        
                     }
                 
-//                    .onAppear {
-////                        if zettelData.zettel.count > 3 {
-//                        proxy.scrollTo(bottomID)
-////                        }
-//                        }
-                    
-//                }
-            }
+                
+
+            
             
         }
+        
     }
 }
 

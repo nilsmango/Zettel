@@ -12,7 +12,7 @@ struct ZettelView: View {
     @ObservedObject var zettelData: ZettelData
     
     @Binding var isPresented: Bool
-    
+        
     var zettel: Zettel
     
     var screenSize: CGSize
@@ -152,22 +152,29 @@ struct ZettelView: View {
                             HStack {
                                 Spacer()
                                
-                                if zettelData.zettel.count > 1 {
+                                
                                     Button(action: {
+                                        withAnimation {
                                         guard let index = zettelData.zettel.firstIndex(where: { $0.id == zettel.id }) else {
                                             fatalError("couldn't find the index for data")
                                         }
-                                        zettelData.zettel.remove(at: index)
+                                            if zettelData.zettel.count > 1 {
+                                            zettelData.zettel.remove(at: index)
+                                            } else {
+                                                zettelData.zettel[0].text = ""
+                                                isPresented = false
+                                            }
+                                        }
                                    })
                                     {
                                         Label("Delete Zettel", systemImage: "xmark.circle.fill")}
+
                                     .labelStyle(.iconOnly)
-            //                        .foregroundColor(.red)
                                     .offset(x: 5, y: -5)
                                     
                                 }
                                     
-                            }
+                            
                             
                             Spacer()
                         }
@@ -178,8 +185,8 @@ struct ZettelView: View {
                             fatalError("couldn't find the index for data")
                         }
                         zettelData.zettel.move(from: index, to: 0)
-//                        zettelData.save()
-                        isPresented = false
+                        
+                            isPresented = false
                     }
         }
         

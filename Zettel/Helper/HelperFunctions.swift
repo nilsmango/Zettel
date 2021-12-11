@@ -6,4 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
+
+extension View {
+    func withoutAnimation() -> some View {
+        self.animation(nil, value: UUID())
+    }
+}

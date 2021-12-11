@@ -14,11 +14,15 @@ struct MainView: View {
     @State private var historyShowing = false
     
     var body: some View {
-        
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
         if historyShowing {
             ZettelHistory(zettelData: zettelData, isPresented: $historyShowing)
+                .transition(.move(edge: .bottom))
         } else {
-            ContentView(zettelData: zettelData, isPresented: $historyShowing)
+            ContentView(zettelData: zettelData, isPresented: $historyShowing.animation())
+        }
         }
     }
 }

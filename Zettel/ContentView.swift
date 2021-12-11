@@ -219,6 +219,7 @@ struct ContentView: View {
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
+                    .opacity(0.0)
                     .onTapGesture { editorIsFocused = nil }
                 
                 VStack {
