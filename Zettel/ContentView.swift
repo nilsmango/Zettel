@@ -235,7 +235,7 @@ struct ContentView: View {
                             .font(.system(size: textSize))
                             .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
                             .onAppear() {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {  /// Anything over 0.5 seems to work
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
                                             editorIsFocused = .field
                                        }
                             }
@@ -354,7 +354,6 @@ struct ContentView: View {
                         
                         
                         Button(action: {
-                            zettelData.save()
                             isPresented = true
                         }) {
                             Label("Zettel History", systemImage: "square.stack.fill")}

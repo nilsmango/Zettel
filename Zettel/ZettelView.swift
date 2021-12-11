@@ -178,17 +178,9 @@ struct ZettelView: View {
                             fatalError("couldn't find the index for data")
                         }
                         zettelData.zettel.move(from: index, to: 0)
-                        zettelData.save()
+//                        zettelData.save()
                         isPresented = false
                     }
-            
-//            if zettel.id == zettelData.zettel.first?.id {
-//                Spacer(minLength: ( screenSize.height / 2 ) - (((geoMagic(width: screenSize.width, height: screenSize.height).height + 63) / 2)))
-//                    .onTapGesture {
-//                        zettelData.save()
-//                        isPresented = false
-//                    }
-//            }
         }
         
         

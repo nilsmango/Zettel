@@ -22,22 +22,10 @@ struct ZettelHistory: View {
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
-//                    .onTapGesture {
-//                        zettelData.save()
-//                        isPresented = false
-//                    }
 
-//                ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false) {
                         
                         VStack {
-//                            if zettelData.zettel.count == 2 {
-//                                Spacer(minLength: geo.size.height/4)
-//                            }
-//                            if zettelData.zettel.count == 1 {
-//                                Spacer(minLength: geo.size.height/2 - 70)
-//                            }
-
                             ForEach(zettelData.zettel.reversed()) { zettel in
  
                                     ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, screenSize: geo.size)
@@ -46,7 +34,6 @@ struct ZettelHistory: View {
                             }
                         }
                         .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-//                        .padding(.horizontal, 4)
                     }
                 
 //                    .onAppear {
