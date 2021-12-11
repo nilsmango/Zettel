@@ -24,10 +24,6 @@
 		788DBF392737CF99005D67BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF382737CF99005D67BF /* Preview Assets.xcassets */; };
 		78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071322764B3A2006A91E2 /* HelperFunctions.swift */; };
 		78A071352764CC1A006A91E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071342764CC1A006A91E2 /* MainView.swift */; };
-		78F54D3F2747B139001C88C1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F54D3E2747B139001C88C1 /* Intents.framework */; };
-		78F54D422747B139001C88C1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F54D412747B139001C88C1 /* IntentHandler.swift */; };
-		78F54D462747B139001C88C1 /* CustomIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78F54D3D2747B139001C88C1 /* CustomIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		78F54D4B2747B158001C88C1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 78F54D4A2747B158001C88C1 /* Intents.intentdefinition */; };
 		78FCF011276206050032E2DC /* ZettelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF010276206050032E2DC /* ZettelView.swift */; };
 		78FCF0132762119C0032E2DC /* ZettelHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF0122762119C0032E2DC /* ZettelHistory.swift */; };
 /* End PBXBuildFile section */
@@ -40,13 +36,6 @@
 			remoteGlobalIDString = 786ABADA273D157600F97D37;
 			remoteInfo = ZettelWidgetExtension;
 		};
-		78F54D442747B139001C88C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 788DBF262737CF96005D67BF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 78F54D3C2747B139001C88C1;
-			remoteInfo = CustomIntents;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,7 +46,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed App Extensions */,
-				78F54D462747B139001C88C1 /* CustomIntents.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,11 +71,7 @@
 		788DBF382737CF99005D67BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78A071322764B3A2006A91E2 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		78A071342764CC1A006A91E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		78F54D3D2747B139001C88C1 /* CustomIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CustomIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F54D3E2747B139001C88C1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
-		78F54D412747B139001C88C1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		78F54D432747B139001C88C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78F54D4A2747B158001C88C1 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		78FCC6C3273D4BEA00972F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78FCF010276206050032E2DC /* ZettelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelView.swift; sourceTree = "<group>"; };
 		78FCF0122762119C0032E2DC /* ZettelHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelHistory.swift; sourceTree = "<group>"; };
@@ -107,14 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		78F54D3A2747B139001C88C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				78F54D3F2747B139001C88C1 /* Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +141,6 @@
 				786ABAEF273D162C00F97D37 /* ZettelWidgetExtension.entitlements */,
 				788DBF302737CF96005D67BF /* Zettel */,
 				786ABAE1273D157600F97D37 /* ZettelWidget */,
-				78F54D402747B139001C88C1 /* CustomIntents */,
 				786ABADC273D157600F97D37 /* Frameworks */,
 				788DBF2F2737CF96005D67BF /* Products */,
 			);
@@ -176,7 +151,6 @@
 			children = (
 				788DBF2E2737CF96005D67BF /* Zettel.app */,
 				786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */,
-				78F54D3D2747B139001C88C1 /* CustomIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,16 +179,6 @@
 				788DBF382737CF99005D67BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		78F54D402747B139001C88C1 /* CustomIntents */ = {
-			isa = PBXGroup;
-			children = (
-				78F54D412747B139001C88C1 /* IntentHandler.swift */,
-				78F54D432747B139001C88C1 /* Info.plist */,
-				78F54D4A2747B158001C88C1 /* Intents.intentdefinition */,
-			);
-			path = CustomIntents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,29 +214,11 @@
 			);
 			dependencies = (
 				786ABAE8273D157800F97D37 /* PBXTargetDependency */,
-				78F54D452747B139001C88C1 /* PBXTargetDependency */,
 			);
 			name = Zettel;
 			productName = Zettel;
 			productReference = 788DBF2E2737CF96005D67BF /* Zettel.app */;
 			productType = "com.apple.product-type.application";
-		};
-		78F54D3C2747B139001C88C1 /* CustomIntents */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 78F54D492747B139001C88C1 /* Build configuration list for PBXNativeTarget "CustomIntents" */;
-			buildPhases = (
-				78F54D392747B139001C88C1 /* Sources */,
-				78F54D3A2747B139001C88C1 /* Frameworks */,
-				78F54D3B2747B139001C88C1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CustomIntents;
-			productName = CustomIntents;
-			productReference = 78F54D3D2747B139001C88C1 /* CustomIntents.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -289,9 +235,6 @@
 					};
 					788DBF2D2737CF96005D67BF = {
 						CreatedOnToolsVersion = 13.0;
-					};
-					78F54D3C2747B139001C88C1 = {
-						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
@@ -310,7 +253,6 @@
 			targets = (
 				788DBF2D2737CF96005D67BF /* Zettel */,
 				786ABADA273D157600F97D37 /* ZettelWidgetExtension */,
-				78F54D3C2747B139001C88C1 /* CustomIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -331,13 +273,6 @@
 			files = (
 				788DBF392737CF99005D67BF /* Preview Assets.xcassets in Resources */,
 				788DBF362737CF99005D67BF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		78F54D3B2747B139001C88C1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,15 +305,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78F54D392747B139001C88C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				78F54D4B2747B158001C88C1 /* Intents.intentdefinition in Sources */,
-				78F54D422747B139001C88C1 /* IntentHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -386,11 +312,6 @@
 			isa = PBXTargetDependency;
 			target = 786ABADA273D157600F97D37 /* ZettelWidgetExtension */;
 			targetProxy = 786ABAE7273D157800F97D37 /* PBXContainerItemProxy */;
-		};
-		78F54D452747B139001C88C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 78F54D3C2747B139001C88C1 /* CustomIntents */;
-			targetProxy = 78F54D442747B139001C88C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -633,56 +554,6 @@
 			};
 			name = Release;
 		};
-		78F54D472747B139001C88C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDR8Y54N77;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CustomIntents/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CustomIntents;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.CustomIntents;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		78F54D482747B139001C88C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDR8Y54N77;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CustomIntents/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CustomIntents;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.CustomIntents;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -709,15 +580,6 @@
 			buildConfigurations = (
 				788DBF3D2737CF99005D67BF /* Debug */,
 				788DBF3E2737CF99005D67BF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		78F54D492747B139001C88C1 /* Build configuration list for PBXNativeTarget "CustomIntents" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				78F54D472747B139001C88C1 /* Debug */,
-				78F54D482747B139001C88C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
