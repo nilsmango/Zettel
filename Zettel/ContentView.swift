@@ -24,10 +24,6 @@ struct ContentView: View {
     @State private var showingSheet = false
     @State private var isPresented = false
     
-    @State private var sampleText = "No text yet!"
-    @State private var sampleTextSize = Zettel.FontSize.normal
-    @State private var sampleSize = Zettel.ShowSize.small
-    
     @Environment(\.scenePhase) private var scenePhase
     
     private var textSize: CGFloat {
@@ -231,15 +227,15 @@ struct ContentView: View {
                         Spacer()
                         Menu {
                             Button( action: { isPresented = true } ) {
-                                Label("Zettel History", systemImage: "square.grid.2x2")
+                                Label("Zettel History", systemImage: "square.stack.fill")
                             }
-                            Picker("Widget Size Shown", selection: $zettelData.zettel.first?.showSize ?? $sampleSize) {
+                            Picker("Widget Size Shown", selection: $zettelData.zettel[0].showSize) {
                                 ForEach(Zettel.ShowSize.allCases) { type in
                                     Text(type.rawValue.capitalized + " Widget")
                                         .tag(type)
                                 }
                             }
-                            Picker("Font Size", selection: $zettelData.zettel.first?.fontSize ?? $sampleTextSize) {
+                            Picker("Font Size", selection: $zettelData.zettel[0].fontSize) {
                                 ForEach(Zettel.FontSize.allCases) { type in
                                     Text(type.rawValue.capitalized + " Font")
                                         .tag(type)
@@ -265,9 +261,7 @@ struct ContentView: View {
                     .padding(.top)
                     
                     Spacer()
-                    
-                    
-                    
+
                     ZStack {
                         RoundedRectangle(cornerRadius: 13, style: .continuous)
                             .fill(Color("WidgetColor"))
@@ -281,6 +275,7 @@ struct ContentView: View {
                                             editorIsFocused = .field
                                        }
                             }
+                        
                         VStack {
                             Spacer()
                             HStack {
@@ -296,9 +291,7 @@ struct ContentView: View {
                             }
                             
                         }
-                        
-                        
-                        
+
                         if showingSheet {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 13, style: .continuous)
@@ -342,47 +335,38 @@ struct ContentView: View {
                                                 .padding(5)
                                     }
                                 }
-                                
                             }
                         }
-                        
-                        
-                        
                     }
                     .frame(width: geoMagic(width: geo.size.width, height: geo.size.height).width, height: geoMagic(width: geo.size.width, height: geo.size.height).height + 1)
                     Spacer()
-                    
-                    
                 }
+                
                 VStack {
                     Spacer()
                     HStack {
-                        if zettelData.zettel[0].text.count > 0 {
-                            Button(action: {
-                                zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
-                                // insert a new empty zettel at 0.
-                           }) {
-                                Label("Add a new Zettel", systemImage: "plus.circle.fill")}
-                            .labelStyle(.iconOnly)
-                            .padding(5)
-                        }
+                        Button(action: {
+                            zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
+                            // insert a new empty zettel at 0.
+                        }) {
+                            Label("Add a new Zettel", systemImage: "plus.square.fill.on.square.fill")}
                         
+                        
+                        Button(action: {
+                            isPresented = true
+                        }) {
+                            Label("Zettel History", systemImage: "square.stack.fill")}
                     }
+                    .font(.title)
+                    .labelStyle(.iconOnly)
+                    .padding(10)
                 }
                 
             }
             
         }
         .fullScreenCover(isPresented: $isPresented, content: {
-            NavigationView {
-                ZettelHistory(zettelData: zettelData)
-                    .navigationTitle("Zettel History")
-                    .navigationBarItems(trailing: Button(action: {
-                        isPresented = false
-                    }, label: {
-                        Text("Dismiss")
-                    }))
-            }
+                ZettelHistory(zettelData: zettelData, isPresented: $isPresented)
         }
         )
         .onAppear() {

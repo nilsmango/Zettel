@@ -11,6 +11,8 @@ struct ZettelView: View {
 
     @ObservedObject var zettelData: ZettelData
     
+    @Binding var isPresented: Bool
+    
     var zettel: Zettel
     
     var screenSize: CGSize
@@ -129,45 +131,65 @@ struct ZettelView: View {
             
             return (width/3, height/5)
         }
-        
-    
-    
 
     
     
     var body: some View {
-        
-        ZStack {
-            RoundedRectangle(cornerRadius: 13, style: .continuous)
-                .fill(Color("WidgetColor"))
-            
-            VStack {
-                Text(zettel.text)
-                                .font(.system(size: textSize))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
-                Spacer()
-            }
-            
-            VStack {
-                HStack {
-                    Spacer()
-                   
-                        Button(action: {
-                            guard let index = zettelData.zettel.firstIndex(where: { $0.id == zettel.id }) else {
-                                fatalError("couldn't find the index for data")
+        VStack {
+            ZStack {
+                        RoundedRectangle(cornerRadius: 13, style: .continuous)
+                            .fill(Color("WidgetColor"))
+                        
+                        VStack {
+                            Text(zettel.text)
+                                            .font(.system(size: textSize))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                            Spacer()
+                        }
+                        
+                        VStack {
+                            HStack {
+                                Spacer()
+                               
+                                if zettelData.zettel.count > 1 {
+                                    Button(action: {
+                                        guard let index = zettelData.zettel.firstIndex(where: { $0.id == zettel.id }) else {
+                                            fatalError("couldn't find the index for data")
+                                        }
+                                        zettelData.zettel.remove(at: index)
+                                   }) {
+                                        Label("Delete Zettel", systemImage: "xmark.circle.fill")}
+                                    .labelStyle(.iconOnly)
+            //                        .foregroundColor(.red)
+                                    .offset(x: 5, y: -5)
+                                    
+                                }
+                                    
                             }
-                            zettelData.zettel.remove(at: index)
-                       }) {
-                            Label("Delete Zettel", systemImage: "xmark.circle.fill")}
-                        .labelStyle(.iconOnly)
-                        .padding(5)
-                }
-                
-                Spacer()
+                            
+                            Spacer()
+                        }
+                    }
+                    .frame(width: geoMagic(width: screenSize.width, height: screenSize.height).width, height: geoMagic(width: screenSize.width, height: screenSize.height).height + 1)
+                    .onTapGesture {
+                        guard let index = zettelData.zettel.firstIndex(where: { $0.id == zettel.id }) else {
+                            fatalError("couldn't find the index for data")
+                        }
+                        zettelData.zettel.move(from: index, to: 0)
+                        isPresented = false
+                    }
+            
+            if zettel.id == zettelData.zettel.first?.id {
+                Spacer(minLength: ( screenSize.height / 2 ) - ((geoMagic(width: screenSize.width, height: screenSize.height).height + 1) / 2))
+                    .onTapGesture {
+                        isPresented = false
+                    }
             }
         }
-        .frame(width: geoMagic(width: screenSize.width, height: screenSize.height).width, height: geoMagic(width: screenSize.width, height: screenSize.height).height + 1)
+        
+        
+        
         
         
         
@@ -179,7 +201,7 @@ struct ZettelView_Previews: PreviewProvider {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
-            ZettelView(zettelData: ZettelData(), zettel: Zettel.sampleData[0], screenSize: CGSize(width: 470, height: 700))
+            ZettelView(zettelData: ZettelData(), isPresented: .constant(false), zettel: Zettel.sampleData[1], screenSize: CGSize(width: 470, height: 700))
         }
     }
 }
