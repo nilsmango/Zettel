@@ -10,10 +10,8 @@ import SwiftUI
 
 
 struct ContentView: View {
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
-    @StateObject private var zettelData = ZettelData()
+    
+    @ObservedObject var zettelData: ZettelData
     
     @FocusState private var editorIsFocused: FocusField?
     
@@ -22,9 +20,10 @@ struct ContentView: View {
       }
     
     @State private var showingSheet = false
-    @State private var isPresented = false
     
-    @Environment(\.scenePhase) private var scenePhase
+    @Binding var isPresented: Bool
+    
+
     
     private var textSize: CGFloat {
         if zettelData.zettel.first?.fontSize == .large {
@@ -223,42 +222,7 @@ struct ContentView: View {
                     .onTapGesture { editorIsFocused = nil }
                 
                 VStack {
-                    HStack() {
-                        Spacer()
-                        Menu {
-                            Button( action: { isPresented = true } ) {
-                                Label("Zettel History", systemImage: "square.stack.fill")
-                            }
-                            Picker("Widget Size Shown", selection: $zettelData.zettel[0].showSize) {
-                                ForEach(Zettel.ShowSize.allCases) { type in
-                                    Text(type.rawValue.capitalized + " Widget")
-                                        .tag(type)
-                                }
-                            }
-                            Picker("Font Size", selection: $zettelData.zettel[0].fontSize) {
-                                ForEach(Zettel.FontSize.allCases) { type in
-                                    Text(type.rawValue.capitalized + " Font")
-                                        .tag(type)
-                                }
-                            }
-                            Button(action: { showingSheet = true } ) {
-                                Label("About", systemImage: "info.circle")
-                            }
-                        } label: {
-                            Label("Options", systemImage: "ellipsis.circle")
-                                .labelStyle(.iconOnly)
-                                .font(.title2)
-                        }
-                        if (editorIsFocused != nil) {
-                            Button("Done") {
-                                editorIsFocused = nil
-                            }
-                            .font(.headline)
-                            .padding(.leading, 5)
-                        }
-                    }
-                    .padding(.trailing)
-                    .padding(.top)
+
                     
                     Spacer()
 
@@ -341,7 +305,44 @@ struct ContentView: View {
                     .frame(width: geoMagic(width: geo.size.width, height: geo.size.height).width, height: geoMagic(width: geo.size.width, height: geo.size.height).height + 1)
                     Spacer()
                 }
+                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 
+                VStack {
+                    HStack {
+                        Spacer()
+                        Menu {
+                            Picker("Widget Size Shown", selection: $zettelData.zettel[0].showSize) {
+                                ForEach(Zettel.ShowSize.allCases) { type in
+                                    Text(type.rawValue.capitalized + " Widget")
+                                        .tag(type)
+                                }
+                            }
+                            Picker("Font Size", selection: $zettelData.zettel[0].fontSize) {
+                                ForEach(Zettel.FontSize.allCases) { type in
+                                    Text(type.rawValue.capitalized + " Font")
+                                        .tag(type)
+                                }
+                            }
+                            Button(action: { showingSheet = true } ) {
+                                Label("About", systemImage: "info.circle")
+                            }
+                        } label: {
+                            Label("Options", systemImage: "ellipsis.circle")
+                                .labelStyle(.iconOnly)
+                                .font(.title2)
+                        }
+                        if (editorIsFocused != nil) {
+                            Button("Done") {
+                                editorIsFocused = nil
+                            }
+                            .font(.headline)
+                            .padding(.leading, 5)
+                        }
+                    }
+                    .padding(.trailing)
+                .padding(.top)
+                    Spacer()
+                }
                 VStack {
                     Spacer()
                     HStack {
@@ -353,6 +354,7 @@ struct ContentView: View {
                         
                         
                         Button(action: {
+                            zettelData.save()
                             isPresented = true
                         }) {
                             Label("Zettel History", systemImage: "square.stack.fill")}
@@ -365,16 +367,7 @@ struct ContentView: View {
             }
             
         }
-        .fullScreenCover(isPresented: $isPresented, content: {
-                ZettelHistory(zettelData: zettelData, isPresented: $isPresented)
-        }
-        )
-        .onAppear() {
-            zettelData.load()
-        }
-        .onChange(of: scenePhase) { phase in
-            if phase == .inactive { zettelData.save() }
-        }
+        
         
         
         
@@ -388,7 +381,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         //        ContentView()
         //            .preferredColorScheme(.dark)
-        ContentView()
+        ContentView(zettelData: ZettelData(), isPresented: .constant(false))
             .preferredColorScheme(.light)
         
     }

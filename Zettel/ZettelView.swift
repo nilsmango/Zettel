@@ -144,7 +144,7 @@ struct ZettelView: View {
                             Text(zettel.text)
                                             .font(.system(size: textSize))
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                            .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                            .padding(EdgeInsets(top: 19, leading: 17, bottom: 13, trailing: 12))
                             Spacer()
                         }
                         
@@ -158,7 +158,8 @@ struct ZettelView: View {
                                             fatalError("couldn't find the index for data")
                                         }
                                         zettelData.zettel.remove(at: index)
-                                   }) {
+                                   })
+                                    {
                                         Label("Delete Zettel", systemImage: "xmark.circle.fill")}
                                     .labelStyle(.iconOnly)
             //                        .foregroundColor(.red)
@@ -177,15 +178,17 @@ struct ZettelView: View {
                             fatalError("couldn't find the index for data")
                         }
                         zettelData.zettel.move(from: index, to: 0)
+                        zettelData.save()
                         isPresented = false
                     }
             
-            if zettel.id == zettelData.zettel.first?.id {
-                Spacer(minLength: ( screenSize.height / 2 ) - ((geoMagic(width: screenSize.width, height: screenSize.height).height + 1) / 2))
-                    .onTapGesture {
-                        isPresented = false
-                    }
-            }
+//            if zettel.id == zettelData.zettel.first?.id {
+//                Spacer(minLength: ( screenSize.height / 2 ) - (((geoMagic(width: screenSize.width, height: screenSize.height).height + 63) / 2)))
+//                    .onTapGesture {
+//                        zettelData.save()
+//                        isPresented = false
+//                    }
+//            }
         }
         
         
@@ -195,6 +198,7 @@ struct ZettelView: View {
         
     }
 }
+
 
 struct ZettelView_Previews: PreviewProvider {
     static var previews: some View {
