@@ -220,7 +220,9 @@ struct ContentView: View {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
                     .opacity(0.0)
-                    .onTapGesture { editorIsFocused = nil }
+                    .onTapGesture {
+                        editorIsFocused = nil
+                    }
                 
                 VStack {
 
@@ -231,15 +233,29 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 13, style: .continuous)
                             .fill(Color("WidgetColor"))
                         
-                        TextEditor(text: $zettelData.zettel[0].text)
-                            .focused($editorIsFocused, equals: .field)
-                            .font(.system(size: textSize))
-                            .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
-                            .onAppear() {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
-                                            editorIsFocused = .field
-                                       }
-                            }
+                        if #available(iOS 16.0, *) {
+                            TextEditor(text: $zettelData.zettel[0].text)
+                                .scrollContentBackground(.hidden)
+                                .focused($editorIsFocused, equals: .field)
+                                .font(.system(size: textSize))
+                                .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                .onAppear() {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
+                                        editorIsFocused = .field
+                                    }
+                                }
+                        } else {
+                            TextEditor(text: $zettelData.zettel[0].text)
+                                .focused($editorIsFocused, equals: .field)
+                                .font(.system(size: textSize))
+                                .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                .onAppear() {
+                                    UITextView.appearance().backgroundColor = UIColor(Color("WidgetColor"))
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
+                                        editorIsFocused = .field
+                                    }
+                                }
+                        }
                         
                         VStack {
                             Spacer()
@@ -266,12 +282,13 @@ struct ContentView: View {
 //                                    Spacer()
                                     Text("About")
                                         .font(.title)
-                                    Text("We are 7III. We make apps and other useful things.")
+                                        .fontWeight(.bold)
+                                    Text("We are project7III. We make apps and other useful things.")
                                     HStack {
-                                        Text("Find us: [7III.ch](https://7iii.ch)")
+                                        Text("Find us: [project7III](https://project7iii.com)")
                                     }
                                     HStack {
-                                        Text("Write to us: [feedback@7III.ch](mailto:feedback@7iii.ch)")
+                                        Text("Write to us: [zettel@project7iii.com](mailto:zettel@project7iii.com)")
                                     }
                                     Text("")
                                     Group {
@@ -282,26 +299,31 @@ struct ContentView: View {
                                         Text("3. Tap the +")
                                         Text("4. Search for Zettel")
                                         Text("5. Add the Zettel widget of your choice")
+                                        Text("\nNote: The widget will always show the Zettel you worked on last.")
+                                            .foregroundColor(Color(.gray))
                                     }
                                     
                                     Spacer()
                                     
                                 }
                                 .font(.system(size: 16))
-                                .padding(EdgeInsets(top: 13, leading: -3, bottom: 13, trailing: 13))
+                                .padding(EdgeInsets(top: 13, leading: 13, bottom: 13, trailing: 13))
                                 
                                 VStack {
-                                    Spacer()
+                                    
                                     HStack {
                                         Spacer()
                                         Button(action: { showingSheet.toggle() }) {
                                             Label("Dismiss", systemImage: "xmark.circle.fill")}
                                                 .labelStyle(.iconOnly)
-                                                .padding(5)
+//                                                .padding(5)
+                                                .offset(x: 5, y: -5)
                                     }
+                                    Spacer()
                                 }
                             }
                         }
+
                     }
                     .frame(width: geoMagic(width: geo.size.width, height: geo.size.height).width, height: geoMagic(width: geo.size.width, height: geo.size.height).height + 1)
                     Spacer()
@@ -311,6 +333,13 @@ struct ContentView: View {
                 VStack {
                     HStack {
                         Spacer()
+                        if (editorIsFocused != nil) {
+                            Button("Done") {
+                                editorIsFocused = nil
+                            }
+                            .font(.headline)
+                            .padding(.leading, 5)
+                        }
                         Menu {
                             Picker("Widget Size Shown", selection: $zettelData.zettel[0].showSize) {
                                 ForEach(Zettel.ShowSize.allCases) { type in
@@ -331,19 +360,17 @@ struct ContentView: View {
                             Label("Options", systemImage: "ellipsis.circle")
                                 .labelStyle(.iconOnly)
                                 .font(.title2)
+                                
                         }
-                        if (editorIsFocused != nil) {
-                            Button("Done") {
-                                editorIsFocused = nil
-                            }
-                            .font(.headline)
-                            .padding(.leading, 5)
-                        }
+                        
                     }
                     .padding(.trailing)
                 .padding(.top)
+
+                
                     Spacer()
                 }
+                
                 VStack {
                     Spacer()
                     HStack {
@@ -363,6 +390,8 @@ struct ContentView: View {
                     .labelStyle(.iconOnly)
                     .padding(10)
                 }
+                
+                
                 
             }
             

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Zettel: Identifiable, Codable {
+struct Zettel: Identifiable, Codable, Hashable {
     
     enum ShowSize: String, Codable, CaseIterable, Identifiable {
         case small, medium, large

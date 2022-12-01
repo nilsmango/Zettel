@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 @main
 struct ZettelApp: App {
     init() {
-        UITextView.appearance().backgroundColor = .clear
+        UITextView.appearance().backgroundColor = UIColor(Color("WidgetColor"))
     }
     
     @StateObject private var zettelData = ZettelData()
@@ -24,7 +25,10 @@ struct ZettelApp: App {
                     zettelData.load()
                 }
                 .onChange(of: scenePhase) { phase in
-                    if phase == .inactive { zettelData.save() }
+                    if phase == .inactive {
+                        zettelData.save()
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                 }
         }
     }

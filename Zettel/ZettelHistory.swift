@@ -15,43 +15,41 @@ struct ZettelHistory: View {
     
     @Binding var isPresented: Bool
     
+    @State private var wasChosen = false
+    
     @Namespace var bottomID
     
+    var screenSize: CGSize
+    
     var body: some View {
-        GeometryReader { geo in
             
-                ScrollView(showsIndicators: false) {
-                    ScrollViewReader { proxy in
-                        VStack {
+            ScrollView(showsIndicators: false) {
+                ScrollViewReader { proxy in
+                    VStack {
+                        if wasChosen {
+                            
+                        } else {
                             ForEach(zettelData.zettel.reversed()) { zettel in
-                                
-                                ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, screenSize: geo.size)
+                                ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, wasChosen: $wasChosen.animation(), screenSize: screenSize)
                                     .padding(.vertical, 10)
-                                
-                                
+
                             }
                             .onAppear() {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     withAnimation {
                                         proxy.scrollTo(bottomID)
                                     }
-                                
+                                    
                                 }
                             }
-                            
                         }
-                        .id(bottomID)
-                        .frame(minWidth: geo.size.width, minHeight: geo.size.height, alignment: .center)
                         
                     }
-                        
-                    }
-                
-                
-
-            
-            
-        }
+                    .id(bottomID)
+                    .frame(minWidth: screenSize.width, minHeight: screenSize.height, alignment: .center)
+                }
+            }
+        
         
     }
 }
@@ -59,6 +57,6 @@ struct ZettelHistory: View {
 
 struct ZettelHistory_Previews: PreviewProvider {
     static var previews: some View {
-        ZettelHistory(zettelData: ZettelData(), isPresented: .constant(true))
+        ZettelHistory(zettelData: ZettelData(), isPresented: .constant(true), screenSize: CGSize(width: 470, height: 700))
     }
 }
