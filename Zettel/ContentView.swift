@@ -281,9 +281,8 @@ struct ContentView: View {
                                     
 //                                    Spacer()
                                     Text("About")
-                                        .font(.title)
+                                        .font(.title3)
                                         .fontWeight(.bold)
-                                    Text("We are project7III. We make apps and other useful things.")
                                     HStack {
                                         Text("Find us: [project7III](https://project7iii.com)")
                                     }
@@ -294,26 +293,27 @@ struct ContentView: View {
                                     Group {
                                         Text("How to add a Zettel widget")
                                             .fontWeight(.bold)
-                                        Text("1. Go to the home screen")
+                                        Text("1. Go to the Home Screen")
                                         Text("2. Long press to enter wiggle mode")
                                         Text("3. Tap the +")
                                         Text("4. Search for Zettel")
                                         Text("5. Add the Zettel widget of your choice")
                                         Text("\nNote: The widget will always show the Zettel you worked on last.")
                                             .foregroundColor(Color(.gray))
+                                        Text("\nVersion Log:\n1.0 made with ❤️ by [Nils Mango](https://nilsmango.ch) in Switzerland, 2021-2022.")
                                     }
                                     
                                     Spacer()
                                     
                                 }
-                                .font(.system(size: 16))
+                                .font(.system(size: 12))
                                 .padding(EdgeInsets(top: 13, leading: 13, bottom: 13, trailing: 13))
                                 
                                 VStack {
                                     
                                     HStack {
                                         Spacer()
-                                        Button(action: { showingSheet.toggle() }) {
+                                        Button(action: { showingSheet = false }) {
                                             Label("Dismiss", systemImage: "xmark.circle.fill")}
                                                 .labelStyle(.iconOnly)
 //                                                .padding(5)
@@ -374,14 +374,21 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     HStack {
+                        if showingSheet == true {
+                            Button(action: { showingSheet = false }) {
+                                Label("Back to current Zettel", systemImage: "square.fill")
+                            }
+                        } else {
+                            Button(action: {
+                                zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
+                                // insert a new empty zettel at 0.
+                            }) {
+                                Label("Add a new Zettel", systemImage: "plus.square.fill.on.square.fill")}
+                       
+                        }
+                      
                         Button(action: {
-                            zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
-                            // insert a new empty zettel at 0.
-                        }) {
-                            Label("Add a new Zettel", systemImage: "plus.square.fill.on.square.fill")}
-                        
-                        
-                        Button(action: {
+                            showingSheet = false
                             isPresented = true
                         }) {
                             Label("Zettel History", systemImage: "square.stack.fill")}

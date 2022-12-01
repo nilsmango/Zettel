@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     
-    
     @ObservedObject var zettelData: ZettelData
     
     @State private var historyShowing = false
