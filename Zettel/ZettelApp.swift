@@ -18,6 +18,24 @@ struct ZettelApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
     
+    var watchConnection = WatchConnection()
+
+    private func updateZettel() {
+        print("Trying to send list")
+        if watchConnection.session.activationState == .activated {
+            
+            var zettelDictionary: [String : Any] = [:]
+                
+            let newZettel = zettelData.zettel.first?.text
+            
+            zettelDictionary["zettelPost"] = newZettel
+            
+            watchConnection.session.transferUserInfo(zettelDictionary)
+
+        }
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
             MainView(zettelData: zettelData)
@@ -26,6 +44,7 @@ struct ZettelApp: App {
                 }
                 .onChange(of: scenePhase) { phase in
                     if phase == .inactive {
+                        updateZettel()
                         zettelData.save()
                         WidgetCenter.shared.reloadAllTimelines()
                     }

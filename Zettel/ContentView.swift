@@ -23,8 +23,6 @@ struct ContentView: View {
     
     @Binding var isPresented: Bool
     
-
-    
     private var textSize: CGFloat {
         if zettelData.zettel.first?.fontSize == .large {
             return CGFloat(20)

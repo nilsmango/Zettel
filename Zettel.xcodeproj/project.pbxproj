@@ -12,6 +12,9 @@
 		7844D6092939149F00F2064B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D6082939149F00F2064B /* ContentView.swift */; };
 		7844D60B293914A000F2064B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7844D60A293914A000F2064B /* Assets.xcassets */; };
 		7844D60E293914A000F2064B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7844D60D293914A000F2064B /* Preview Assets.xcassets */; };
+		7844D61329393C9000F2064B /* WatchConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D61229393C9000F2064B /* WatchConnection.swift */; };
+		7844D61729393F1800F2064B /* PhoneConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D61629393CF400F2064B /* PhoneConnection.swift */; };
+		7844D6192939404300F2064B /* ExtensionUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D6182939404300F2064B /* ExtensionUserDefaults.swift */; };
 		785AB46F273A692D000B329B /* Zettel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB46E273A692D000B329B /* Zettel.swift */; };
 		785AB471273A6B24000B329B /* ZettelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB470273A6B24000B329B /* ZettelData.swift */; };
 		786ABADE273D157600F97D37 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786ABADD273D157600F97D37 /* WidgetKit.framework */; };
@@ -63,6 +66,9 @@
 		7844D6082939149F00F2064B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7844D60A293914A000F2064B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7844D60D293914A000F2064B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7844D61229393C9000F2064B /* WatchConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnection.swift; sourceTree = "<group>"; };
+		7844D61629393CF400F2064B /* PhoneConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnection.swift; sourceTree = "<group>"; };
+		7844D6182939404300F2064B /* ExtensionUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUserDefaults.swift; sourceTree = "<group>"; };
 		785AB46E273A692D000B329B /* Zettel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zettel.swift; sourceTree = "<group>"; };
 		785AB470273A6B24000B329B /* ZettelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelData.swift; sourceTree = "<group>"; };
 		786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ZettelWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +131,7 @@
 		7844D6052939149F00F2064B /* ZettelWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				7844D61529393CE400F2064B /* Model */,
 				7844D6062939149F00F2064B /* ZettelWatchApp.swift */,
 				7844D6082939149F00F2064B /* ContentView.swift */,
 				7844D60A293914A000F2064B /* Assets.xcassets */,
@@ -141,9 +148,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7844D61529393CE400F2064B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7844D61629393CF400F2064B /* PhoneConnection.swift */,
+				7844D6182939404300F2064B /* ExtensionUserDefaults.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		785AB46D273A6911000B329B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7844D61229393C9000F2064B /* WatchConnection.swift */,
 				785AB46E273A692D000B329B /* Zettel.swift */,
 				785AB470273A6B24000B329B /* ZettelData.swift */,
 			);
@@ -352,6 +369,8 @@
 			files = (
 				7844D6092939149F00F2064B /* ContentView.swift in Sources */,
 				7844D6072939149F00F2064B /* ZettelWatchApp.swift in Sources */,
+				7844D6192939404300F2064B /* ExtensionUserDefaults.swift in Sources */,
+				7844D61729393F1800F2064B /* PhoneConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				788DBF342737CF96005D67BF /* ContentView.swift in Sources */,
+				7844D61329393C9000F2064B /* WatchConnection.swift in Sources */,
 				78A071352764CC1A006A91E2 /* MainView.swift in Sources */,
 				78269D802763B8B90036B91D /* ExtentionArray.swift in Sources */,
 				78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */,
@@ -411,14 +431,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchkitapp;
 				PRODUCT_NAME = Zettel;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -441,14 +461,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchkitapp;
 				PRODUCT_NAME = Zettel;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -559,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -614,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
