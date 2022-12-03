@@ -31,6 +31,7 @@
 		788DBF392737CF99005D67BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF382737CF99005D67BF /* Preview Assets.xcassets */; };
 		78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071322764B3A2006A91E2 /* HelperFunctions.swift */; };
 		78A071352764CC1A006A91E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071342764CC1A006A91E2 /* MainView.swift */; };
+		78EB5339293A282300D6AFE4 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 78EB5338293A282300D6AFE4 /* Intents.intentdefinition */; };
 		78FCF011276206050032E2DC /* ZettelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF010276206050032E2DC /* ZettelView.swift */; };
 		78FCF0132762119C0032E2DC /* ZettelHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCF0122762119C0032E2DC /* ZettelHistory.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		788DBF382737CF99005D67BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78A071322764B3A2006A91E2 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		78A071342764CC1A006A91E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		78EB5338293A282300D6AFE4 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		78F54D3E2747B139001C88C1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		78FCC6C3273D4BEA00972F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78FCF010276206050032E2DC /* ZettelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				785AB46D273A6911000B329B /* Model */,
 				788DBF352737CF99005D67BF /* Assets.xcassets */,
 				788DBF372737CF99005D67BF /* Preview Content */,
+				78EB5338293A282300D6AFE4 /* Intents.intentdefinition */,
 			);
 			path = Zettel;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				788DBF342737CF96005D67BF /* ContentView.swift in Sources */,
 				7844D61329393C9000F2064B /* WatchConnection.swift in Sources */,
 				78A071352764CC1A006A91E2 /* MainView.swift in Sources */,
+				78EB5339293A282300D6AFE4 /* Intents.intentdefinition in Sources */,
 				78269D802763B8B90036B91D /* ExtentionArray.swift in Sources */,
 				78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */,
 				785AB471273A6B24000B329B /* ZettelData.swift in Sources */,
@@ -418,6 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
@@ -431,8 +436,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchKit;
 				PRODUCT_NAME = Zettel;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -448,6 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
@@ -461,8 +468,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchKit;
 				PRODUCT_NAME = Zettel;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

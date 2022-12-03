@@ -37,11 +37,11 @@ struct Provider: TimelineProvider {
     
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), zettel: [Zettel(text: "These are your notes on the Zettel. In a Zettel widget, on your home screen, for you to check!", showSize: .small, fontSize: .compact)])
+        SimpleEntry(date: Date(), zettel: [Zettel(text: "Your notes on the Zettel. In a Zettel widget, on your Home Screen, for you to check and edit!", showSize: .small, fontSize: .compact)])
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), zettel: [Zettel(text: "Your notes on the Zettel. In a Zettel widget, on your home screen, for you to check!", showSize: .small, fontSize: .compact)])
+        let entry = SimpleEntry(date: Date(), zettel: [Zettel(text: "Your notes on the Zettel. In a Zettel widget, on your Home Screen, for you to check and edit!", showSize: .small, fontSize: .compact)])
         completion(entry)
     }
 

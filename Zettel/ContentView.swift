@@ -23,6 +23,8 @@ struct ContentView: View {
     
     @Binding var isPresented: Bool
     
+    @AppStorage("about") var about = "About\nproject7III makes useful things.\nFind us: project7iii.com\nWrite to us: zettel@project7iii.com\n\nHow to add a Zettel widget\n1. Go to the Home Screen\n2. Long press to enter wiggle mode\n3. Tap the +\n4. Search for Zettel\n5. Add the Zettel widget of your choice\n\nNote: The widget will always show the Zettel you worked on last.\n\nChangelog:\n1.0 made with ❤️ by Nils Mango (nilsmango.ch) in Switzerland, 2021-2022."
+    
     private var textSize: CGFloat {
         if zettelData.zettel.first?.fontSize == .large {
             return CGFloat(20)
@@ -275,38 +277,20 @@ struct ContentView: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 13, style: .continuous)
                                     .fill(Color("WidgetColor"))
-                                VStack(alignment: .leading) {
-                                    
-//                                    Spacer()
-                                    Text("About")
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                    HStack {
-                                        Text("Find us: [project7III](https://project7iii.com)")
-                                    }
-                                    HStack {
-                                        Text("Write to us: [zettel@project7iii.com](mailto:zettel@project7iii.com)")
-                                    }
-                                    Text("")
-                                    Group {
-                                        Text("How to add a Zettel widget")
-                                            .fontWeight(.bold)
-                                        Text("1. Go to the Home Screen")
-                                        Text("2. Long press to enter wiggle mode")
-                                        Text("3. Tap the +")
-                                        Text("4. Search for Zettel")
-                                        Text("5. Add the Zettel widget of your choice")
-                                        Text("\nNote: The widget will always show the Zettel you worked on last.")
-                                            .foregroundColor(Color(.gray))
-                                        Text("\nVersion Log:\n1.0 made with ❤️ by [Nils Mango](https://nilsmango.ch) in Switzerland, 2021-2022.")
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                }
-                                .font(.system(size: 12))
-                                .padding(EdgeInsets(top: 13, leading: 13, bottom: 13, trailing: 13))
                                 
+                                if #available(iOS 16.0, *) {
+                                    TextEditor(text: $about)
+                                        .scrollContentBackground(.hidden)
+                                        .font(.system(size: textSize))
+                                        .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                        
+                                } else {
+                                    TextEditor(text: $about)
+                                        .font(.system(size: textSize))
+                                        .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                        
+                                }
+
                                 VStack {
                                     
                                     HStack {
@@ -317,9 +301,12 @@ struct ContentView: View {
 //                                                .padding(5)
                                                 .offset(x: 5, y: -5)
                                     }
+                                    
+                                    
                                     Spacer()
                                 }
                             }
+                                                        
                         }
 
                     }
@@ -372,24 +359,31 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     HStack {
+                        
                         if showingSheet == true {
                             Button(action: { showingSheet = false }) {
                                 Label("Back to current Zettel", systemImage: "square.fill")
                             }
+                            .padding(.trailing)
                         } else {
                             Button(action: {
                                 zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
                                 // insert a new empty zettel at 0.
                             }) {
                                 Label("Add a new Zettel", systemImage: "plus.square.fill.on.square.fill")}
+                            .padding(.trailing)
                        
                         }
-                      
+                        
+                        
+                        
                         Button(action: {
                             showingSheet = false
                             isPresented = true
                         }) {
                             Label("Zettel History", systemImage: "square.stack.fill")}
+                        .padding(.leading)
+                        
                     }
                     .font(.title)
                     .labelStyle(.iconOnly)
