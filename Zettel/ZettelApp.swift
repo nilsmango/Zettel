@@ -21,7 +21,7 @@ struct ZettelApp: App {
     var watchConnection = WatchConnection()
 
     private func updateZettel() {
-        print("Trying to send list")
+        print("Trying to send list to watch")
         if watchConnection.session.activationState == .activated {
             
             var zettelDictionary: [String : Any] = [:]
@@ -41,6 +41,7 @@ struct ZettelApp: App {
             MainView(zettelData: zettelData)
                 .onAppear() {
                     zettelData.load()
+                    zettelData.deletedZettel.removeAll()
                 }
                 .onChange(of: scenePhase) { phase in
                     if phase == .inactive {

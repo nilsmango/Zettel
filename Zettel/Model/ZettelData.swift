@@ -22,6 +22,13 @@ class ZettelData: ObservableObject {
     
     @Published var zettel: [Zettel] = [Zettel(text: "This is your note.", showSize: .small, fontSize: .compact)]
     
+    @Published var deletedZettel: [Zettel] = []
+    
+    func restoreLastDeletedZettel() {
+        let restoredZettel = deletedZettel.last ?? Zettel(text: "We couldn't find your last note.", showSize: .small, fontSize: .compact)
+        deletedZettel.removeLast()
+        zettel.append(restoredZettel)
+    }
     
     
     func load() {

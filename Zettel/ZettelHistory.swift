@@ -22,6 +22,7 @@ struct ZettelHistory: View {
     var screenSize: CGSize
     
     var body: some View {
+        ZStack {
             
             ScrollView(showsIndicators: false) {
                 ScrollViewReader { proxy in
@@ -32,7 +33,7 @@ struct ZettelHistory: View {
                             ForEach(zettelData.zettel.reversed()) { zettel in
                                 ZettelView(zettelData: zettelData, isPresented: $isPresented, zettel: zettel, wasChosen: $wasChosen.animation(), screenSize: screenSize)
                                     .padding(.vertical, 10)
-
+                                
                             }
                             .onAppear() {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -49,7 +50,27 @@ struct ZettelHistory: View {
                     .frame(minWidth: screenSize.width, minHeight: screenSize.height, alignment: .center)
                 }
             }
-        
+            VStack {
+                HStack {
+                    Spacer()
+                    if zettelData.deletedZettel.isEmpty == false {
+                        Button(action: {
+                            withAnimation {
+                                zettelData.restoreLastDeletedZettel()
+                            }
+                        } ) {
+                            Label("Undo", systemImage: "arrow.uturn.backward.circle")
+                        }
+                        .font(.title2)
+                        .labelStyle(.iconOnly)
+                        .padding(.trailing)
+                        .padding(.top)
+                    }
+                    
+                }
+                Spacer()
+            }
+        }
         
     }
 }

@@ -341,6 +341,11 @@ struct ContentView: View {
                             Button(action: { showingSheet = true } ) {
                                 Label("About", systemImage: "info.circle")
                             }
+                            Button(action: {
+                                // TODO: Add donation thing
+                            } ) {
+                                Label("Tip us 1 USD!", systemImage: "heart")
+                            }
                         } label: {
                             Label("Options", systemImage: "ellipsis.circle")
                                 .labelStyle(.iconOnly)

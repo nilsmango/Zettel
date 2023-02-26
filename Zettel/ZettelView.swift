@@ -160,9 +160,14 @@ struct ZettelView: View {
                                     fatalError("couldn't find the index for data")
                                 }
                                 if zettelData.zettel.count > 1 {
+                                    zettelData.deletedZettel.append(zettelData.zettel[index])
                                     zettelData.zettel.remove(at: index)
                                 } else {
-                                    zettelData.zettel[0].text = ""
+                                    zettelData.deletedZettel.append(zettelData.zettel[0])
+                                    let showSize = zettelData.zettel[0].showSize
+                                    let fontSize = zettelData.zettel[0].fontSize
+                                    zettelData.zettel.removeAll()
+                                    zettelData.zettel.append(Zettel(text: "", showSize: showSize, fontSize: fontSize))
                                     isPresented = false
                                 }
                             }
