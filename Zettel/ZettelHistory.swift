@@ -23,7 +23,6 @@ struct ZettelHistory: View {
     
     var body: some View {
         ZStack {
-            
             ScrollView(showsIndicators: false) {
                 ScrollViewReader { proxy in
                     VStack {

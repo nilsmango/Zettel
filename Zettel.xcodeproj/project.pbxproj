@@ -21,7 +21,7 @@
 		786ABAE0273D157600F97D37 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786ABADF273D157600F97D37 /* SwiftUI.framework */; };
 		786ABAE3273D157600F97D37 /* ZettelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ABAE2273D157600F97D37 /* ZettelWidget.swift */; };
 		786ABAE5273D157800F97D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786ABAE4273D157800F97D37 /* Assets.xcassets */; };
-		786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		786ABAF0273D167C00F97D37 /* ZettelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB470273A6B24000B329B /* ZettelData.swift */; };
 		786ABAF1273D168000F97D37 /* Zettel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB46E273A692D000B329B /* Zettel.swift */; };
 		786ABAF2273D1FC900F97D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF352737CF99005D67BF /* Assets.xcassets */; };
@@ -29,6 +29,7 @@
 		788DBF342737CF96005D67BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DBF332737CF96005D67BF /* ContentView.swift */; };
 		788DBF362737CF99005D67BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF352737CF99005D67BF /* Assets.xcassets */; };
 		788DBF392737CF99005D67BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DBF382737CF99005D67BF /* Preview Assets.xcassets */; };
+		78971D542C8C4A0600F8FC20 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78971D532C8C4A0600F8FC20 /* WidgetPreview.swift */; };
 		78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071322764B3A2006A91E2 /* HelperFunctions.swift */; };
 		78A071352764CC1A006A91E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A071342764CC1A006A91E2 /* MainView.swift */; };
 		78EB5339293A282300D6AFE4 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 78EB5338293A282300D6AFE4 /* Intents.intentdefinition */; };
@@ -47,22 +48,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		786ABAEA273D157800F97D37 /* Embed App Extensions */ = {
+		786ABAEA273D157800F97D37 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed App Extensions */,
+				786ABAE9273D157800F97D37 /* ZettelWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		780080202C8B3D7E00796EC1 /* ZettelWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ZettelWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		78269D7F2763B8B80036B91D /* ExtentionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionArray.swift; sourceTree = "<group>"; };
-		7844D6042939149F00F2064B /* Zettel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zettel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7844D6042939149F00F2064B /* 7III Zettel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7III Zettel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7844D6062939149F00F2064B /* ZettelWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelWatchApp.swift; sourceTree = "<group>"; };
 		7844D6082939149F00F2064B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7844D60A293914A000F2064B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		788DBF332737CF96005D67BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		788DBF352737CF99005D67BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788DBF382737CF99005D67BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78971D532C8C4A0600F8FC20 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		78A071322764B3A2006A91E2 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		78A071342764CC1A006A91E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78EB5338293A282300D6AFE4 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		7844D6052939149F00F2064B /* ZettelWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				780080202C8B3D7E00796EC1 /* ZettelWatch Watch App.entitlements */,
 				7844D61529393CE400F2064B /* Model */,
 				7844D6062939149F00F2064B /* ZettelWatchApp.swift */,
 				7844D6082939149F00F2064B /* ContentView.swift */,
@@ -206,7 +210,7 @@
 			children = (
 				788DBF2E2737CF96005D67BF /* Zettel.app */,
 				786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */,
-				7844D6042939149F00F2064B /* Zettel.app */,
+				7844D6042939149F00F2064B /* 7III Zettel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +225,7 @@
 				788DBF332737CF96005D67BF /* ContentView.swift */,
 				78FCF0122762119C0032E2DC /* ZettelHistory.swift */,
 				78FCF010276206050032E2DC /* ZettelView.swift */,
+				78971D532C8C4A0600F8FC20 /* WidgetPreview.swift */,
 				78269D812763B8C00036B91D /* Helper */,
 				785AB46D273A6911000B329B /* Model */,
 				788DBF352737CF99005D67BF /* Assets.xcassets */,
@@ -255,7 +260,7 @@
 			);
 			name = "ZettelWatch Watch App";
 			productName = "ZettelWatch Watch App";
-			productReference = 7844D6042939149F00F2064B /* Zettel.app */;
+			productReference = 7844D6042939149F00F2064B /* 7III Zettel.app */;
 			productType = "com.apple.product-type.application";
 		};
 		786ABADA273D157600F97D37 /* ZettelWidgetExtension */ = {
@@ -282,7 +287,7 @@
 				788DBF2A2737CF96005D67BF /* Sources */,
 				788DBF2B2737CF96005D67BF /* Frameworks */,
 				788DBF2C2737CF96005D67BF /* Resources */,
-				786ABAEA273D157800F97D37 /* Embed App Extensions */,
+				786ABAEA273D157800F97D37 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -302,7 +307,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					7844D6032939149F00F2064B = {
 						CreatedOnToolsVersion = 14.1;
@@ -395,6 +400,7 @@
 				7844D61329393C9000F2064B /* WatchConnection.swift in Sources */,
 				78A071352764CC1A006A91E2 /* MainView.swift in Sources */,
 				78EB5339293A282300D6AFE4 /* Intents.intentdefinition in Sources */,
+				78971D542C8C4A0600F8FC20 /* WidgetPreview.swift in Sources */,
 				78269D802763B8B90036B91D /* ExtentionArray.swift in Sources */,
 				78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */,
 				785AB471273A6B24000B329B /* ZettelData.swift in Sources */,
@@ -422,29 +428,30 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "ZettelWatch Watch App/ZettelWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.project7III.zettel1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchKit;
-				PRODUCT_NAME = Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.watchkitapp;
+				PRODUCT_NAME = "7III Zettel";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -454,29 +461,30 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "ZettelWatch Watch App/ZettelWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.project7III.zettel1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.watchKit;
-				PRODUCT_NAME = Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.watchkitapp;
+				PRODUCT_NAME = "7III Zettel";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -487,19 +495,21 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ZettelWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZettelWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ZettelWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "7III Zettel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.ZettelWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.ZettelWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -515,19 +525,21 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ZettelWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZettelWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ZettelWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "7III Zettel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel.ZettelWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.ZettelWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -540,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -573,6 +586,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -587,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -601,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -634,6 +649,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -642,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -660,31 +676,32 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Zettel/Zettel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Zettel/Preview Content\"";
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Zettel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "7III Zettel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -696,31 +713,32 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Zettel/Zettel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Zettel/Preview Content\"";
-				DEVELOPMENT_TEAM = XDR8Y54N77;
+				DEVELOPMENT_TEAM = A9H57996U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Zettel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "7III Zettel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.7III.Zettel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

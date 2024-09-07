@@ -11,7 +11,7 @@ import SwiftUI
 struct Provider: TimelineProvider {
     
     private static var documentsFolder: URL {
-        let appIdentifier = "group.qrcoder.codes"
+        let appIdentifier = "group.zettel"
         return FileManager.default.containerURL(
             forSecurityApplicationGroupIdentifier: appIdentifier)!
     }
@@ -61,6 +61,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct ZettelWidgetEntryView : View {
+    @Environment(\.widgetRenderingMode) var renderingMode
     var entry: Provider.Entry
     
     private var textSize: CGFloat {
@@ -76,14 +77,39 @@ struct ZettelWidgetEntryView : View {
     }
 
     var body: some View {
-        VStack {
-            Text(entry.zettel[0].text)
-                .font(.system(size: textSize))
+        ZStack {
+            switch renderingMode {
+            case .accented:
+                VStack {
+                    Text(entry.zettel[0].text)
+                        .font(.system(size: textSize))
+                        .widgetAccentable()
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .layoutPriority(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer()
+                    
+                    Spacer()
+                }
+                    .containerBackground(for: .widget) {
+                                    Color("WidgetColor")
+                                }
+                    
+            default:
+                VStack {
+                    Text(entry.zettel[0].text)
+                        .font(.system(size: textSize))
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .layoutPriority(1)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                }
+                    .containerBackground(for: .widget) {
+                                    Color("WidgetColor")
+                                }
+            }
         }
-            .padding(16)
-            .background(Color("WidgetColor"))
     }
 }
 

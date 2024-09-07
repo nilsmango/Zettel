@@ -13,20 +13,22 @@ struct MainView: View {
     
     @State private var historyShowing = false
     
+    let screenSize = UIScreen.main.bounds.size
+    
+    
     var body: some View {
-        GeometryReader { geo in
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
             if historyShowing {
-                ZettelHistory(zettelData: zettelData, isPresented: $historyShowing, screenSize: geo.size)
+                ZettelHistory(zettelData: zettelData, isPresented: $historyShowing, screenSize: screenSize)
                     .transition(.move(edge: .bottom))
             } else {
-                ContentView(zettelData: zettelData, isPresented: $historyShowing.animation())
+                ContentView(zettelData: zettelData, isPresented: $historyShowing.animation(), screenSize: screenSize)
             }
         }
         
-        }
+        
     }
 }
 

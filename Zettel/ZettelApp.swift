@@ -43,11 +43,10 @@ struct ZettelApp: App {
                     zettelData.load()
                     zettelData.deletedZettel.removeAll()
                 }
-                .onChange(of: scenePhase) { phase in
-                    if phase == .inactive {
-                        updateZettel()
+                .onChange(of: scenePhase) { oldPhase, newPhase in
+                    if newPhase == .inactive {
                         zettelData.save()
-                        WidgetCenter.shared.reloadAllTimelines()
+                        updateZettel()
                     }
                 }
         }

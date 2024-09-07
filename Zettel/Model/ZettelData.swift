@@ -11,7 +11,7 @@ import WidgetKit
 class ZettelData: ObservableObject {
     
     private static var documentsFolder: URL {
-        let appIdentifier = "group.qrcoder.codes"
+        let appIdentifier = "group.zettel"
         return FileManager.default.containerURL(
             forSecurityApplicationGroupIdentifier: appIdentifier)!
     }
