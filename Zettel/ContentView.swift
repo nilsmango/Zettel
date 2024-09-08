@@ -23,51 +23,23 @@ struct ContentView: View {
     
     @Binding var isPresented: Bool
     
-    @AppStorage("about") var about = "About\nproject7III makes useful things.\nFind us: project7iii.com\nWrite to us: hi@project7iii.com\n\nHow to add a Zettel widget\n1. Go to the Home Screen\n2. Long press to enter wiggle mode\n3. Tap the +\n4. Search for Zettel\n5. Add the Zettel widget of your choice\n\nNote: The widget will always show the Zettel you worked on last.\n\nChangelog:\n0.1 made with ❤️ by Nils Mango (nilsmango.ch) in Switzerland, 2021-2022."
+    @AppStorage("about") var about = initAboutText
     
     var screenSize: CGSize
     
     private var textSize: CGFloat {
-        if zettelData.zettel.first?.fontSize == .large {
-            return CGFloat(20)
-        }
-        if zettelData.zettel.first?.fontSize == .compact {
-            return CGFloat(12)
-        }
-        else {
-            return CGFloat(16)
-        }
+        return makeTextSize(for: zettelData.zettel.first?.fontSize ?? .huge)
     }
-    
-    private var frameWidth: CGFloat {
-        if zettelData.zettel.first?.showSize == .large {
-            return CGFloat(348)
-        }
-        if zettelData.zettel.first?.showSize == .medium {
-            return CGFloat(348)
-        }
-        else {
-            return CGFloat(165)
-        }
-    }
-    
-    private var frameHeight: CGFloat {
-        if zettelData.zettel.first?.showSize == .large {
-            return CGFloat(357)
-        }
-        else {
-            return CGFloat(165)
-        }
-    }
-    
+        
     var body: some View {
+        let frameSize = geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: showingSheet, widgetSize: zettelData.zettel.first?.showSize ?? .small)
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
-                    .opacity(0.0)
                     .onTapGesture {
                         editorIsFocused = nil
                     }
+                    
                 
                 VStack {
 
@@ -77,32 +49,13 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 21.67, style: .continuous)
                             .fill(Color("WidgetColor"))
                         
-                            TextEditor(text: $zettelData.zettel[0].text)
-                                .scrollContentBackground(.hidden)
-                                .focused($editorIsFocused, equals: .field)
-                                .font(.system(size: textSize))
-                                .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
-                                .onAppear() {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
-                                        editorIsFocused = .field
-                                    }
-                                }
-                        
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                if zettelData.zettel[0].text.count > 0 {
-                                    Button(action: { zettelData.zettel[0].text = ""
-                                   }) {
-                                        Label("Erase Text", systemImage: "xmark.circle.fill")}
-                                    .labelStyle(.iconOnly)
-                                    .padding(9)
-                                }
-                                
-                            }
+                           ZettelStack(text: zettelData.zettel[0].text, textSize: textSize)
                             
-                        }
+                            .onAppear() {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  /// Anything over 0.5 seems to work
+                                    editorIsFocused = .field
+                                }
+                            }
 
                         if showingSheet {
                             ZStack {
@@ -112,7 +65,8 @@ struct ContentView: View {
                                     TextEditor(text: $about)
                                         .scrollContentBackground(.hidden)
                                         .font(.system(size: textSize))
-                                        .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
+                                        .minimumScaleFactor(0.4)
+                                        .padding()
                                         
                                 
 
@@ -132,7 +86,11 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .frame(width: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: showingSheet, widgetSize: zettelData.zettel.first?.showSize ?? .small).width, height: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: showingSheet, widgetSize: zettelData.zettel.first?.showSize ?? .small).height + 1)
+                    .frame(width: frameSize.width, height: frameSize.height)
+                    .onTapGesture {
+                        editorIsFocused = .field
+                    }
+                    
                     Spacer()
                 }
                 
@@ -172,7 +130,7 @@ struct ContentView: View {
                             Label("Options", systemImage: "ellipsis.circle.fill")
                                 .labelStyle(.iconOnly)
                                 .font(.title2)
-                                
+                                .contentShape(Rectangle())
                         }
                         
                     }
@@ -185,13 +143,14 @@ struct ContentView: View {
                 
                 VStack {
                     Spacer()
-                    HStack {
+                    HStack(alignment: .bottom) {
                         
                         if showingSheet == true {
                             Button(action: { showingSheet = false }) {
                                 Label("Back to current Zettel", systemImage: "square.fill")
                             }
                             .padding(.trailing)
+                            
                         } else {
                             Button(action: {
                                 zettelData.zettel.insert(Zettel(text: "", showSize: zettelData.zettel[0].showSize, fontSize: zettelData.zettel[0].fontSize), at: 0)
@@ -202,8 +161,49 @@ struct ContentView: View {
                        
                         }
                         
-                        
-                        
+                        if showingSheet {
+                            
+                            Button(action: {
+                                about = initAboutText
+                            }) {
+                                Label("Reset About", systemImage: "arrow.counterclockwise.square.fill")
+                            }
+                            .disabled(about == initAboutText)
+                            .padding(.horizontal)
+                            
+                        } else {
+                            
+                            ZStack {
+                                TextEditor(text: $zettelData.zettel[0].text)
+                                    .scrollContentBackground(.hidden)
+                                    .font(.system(size: CGFloat(12)))
+                                    .minimumScaleFactor(0.5)
+                                    .focused($editorIsFocused, equals: .field)
+                                    .padding(.horizontal)
+                                
+                                VStack {
+                                    Spacer()
+                                    HStack {
+                                        Spacer()
+                                        if zettelData.zettel[0].text.count > 0 {
+                                            Button(action: {
+                                                zettelData.zettel[0].text = ""
+                                                editorIsFocused = .field
+                                            }) {
+                                                Label("Erase Text", systemImage: "xmark.circle.fill")}
+                                            .labelStyle(.iconOnly)
+                                            .font(.system(size: CGFloat(14)))
+                                            .contentShape(Rectangle())
+                                            .padding(.horizontal, 9)
+                                            .padding(.bottom, 5)
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            .frame(width: screenSize.width/2, height: screenSize.height/8)
+                            //                                                    .opacity(editorIsFocused == .field ? 1.0 : 0.0)
+                        }
                         Button(action: {
                             showingSheet = false
                             isPresented = true
@@ -215,6 +215,8 @@ struct ContentView: View {
                     .font(.title)
                     .labelStyle(.iconOnly)
                     .padding(10)
+                    
+
                 }
             }
     }

@@ -65,46 +65,20 @@ struct ZettelWidgetEntryView : View {
     var entry: Provider.Entry
     
     private var textSize: CGFloat {
-        if entry.zettel.first?.fontSize == .large {
-            return CGFloat(20)
+            return makeTextSize(for: entry.zettel.first?.fontSize ?? .huge)
         }
-        if entry.zettel.first?.fontSize == .compact {
-            return CGFloat(13)
-        }
-        else {
-            return CGFloat(16)
-        }
-    }
-
+        
     var body: some View {
         ZStack {
             switch renderingMode {
             case .accented:
-                VStack {
-                    Text(entry.zettel[0].text)
-                        .font(.system(size: textSize))
-                        .widgetAccentable()
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .layoutPriority(1)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                }
+                ZettelStack(text: entry.zettel[0].text, textSize: textSize, isWidget: true)
                     .containerBackground(for: .widget) {
                                     Color("WidgetColor")
                                 }
                     
             default:
-                VStack {
-                    Text(entry.zettel[0].text)
-                        .font(.system(size: textSize))
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .layoutPriority(1)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                    Spacer()
-                }
+                ZettelStack(text: entry.zettel[0].text, textSize: textSize, isWidget: true)
                     .containerBackground(for: .widget) {
                                     Color("WidgetColor")
                                 }

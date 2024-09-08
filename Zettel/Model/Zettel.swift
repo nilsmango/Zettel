@@ -16,7 +16,7 @@ struct Zettel: Identifiable, Codable, Hashable {
     }
     
     enum FontSize: String, Codable, CaseIterable, Identifiable {
-        case compact, normal, large
+        case compact, normal, large, huge
         
         var id: String { self.rawValue }
     }

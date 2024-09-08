@@ -20,15 +20,7 @@ struct ZettelView: View {
     var screenSize: CGSize
     
     private var textSize: CGFloat {
-        if zettel.fontSize == .large {
-            return CGFloat(20)
-        }
-        if zettel.fontSize == .compact {
-            return CGFloat(12)
-        }
-        else {
-            return CGFloat(16)
-        }
+        return makeTextSize(for: zettelData.zettel.first?.fontSize ?? .huge)
     }
     
     var body: some View {
@@ -37,13 +29,7 @@ struct ZettelView: View {
                 RoundedRectangle(cornerRadius: 21.67, style: .continuous)
                     .fill(Color("WidgetColor"))
                 
-                VStack {
-                    Text(zettel.text)
-                        .font(.system(size: textSize))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(EdgeInsets(top: 11, leading: 12, bottom: 13, trailing: 12))
-                    Spacer()
-                }
+                ZettelStack(text: zettel.text, textSize: textSize)
                 
                 VStack {
                     HStack {
@@ -79,7 +65,7 @@ struct ZettelView: View {
                     Spacer()
                 }
             }
-            .frame(width: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: false, widgetSize: zettel.showSize).width, height: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: false, widgetSize: zettel.showSize).height + 1)
+            .frame(width: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: false, widgetSize: zettel.showSize).width, height: geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: false, widgetSize: zettel.showSize).height)
             .onTapGesture {
                 guard let index = zettelData.zettel.firstIndex(where: { $0.id == zettel.id }) else {
                     fatalError("couldn't find the index for data")
