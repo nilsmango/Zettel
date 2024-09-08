@@ -28,7 +28,7 @@ func makeTextSize(for fontSize: Zettel.FontSize) -> CGFloat {
 }
 
 /// Initial About Text and Version Log / Change Log
-let initAboutText = "About\nproject7III makes useful things.\nFind us: project7iii.com\nWrite to us: hi@project7iii.com\n\nHow to add a Zettel widget\n1. Go to the Home Screen\n2. Long press to enter wiggle mode\n3. Tap the +\n4. Search for Zettel\n5. Add the Zettel widget of your choice\n\nNote: The widget will always show the Zettel you worked on last.\n\nChangelog:\n1.0 fixed and finished the app, 2024.\n0.1 made with ❤️ by Nils Mango (nilsmango.ch) in Switzerland, 2021-2022."
+let initAboutText = "About:\nproject7III makes useful things.\nFind us: project7iii.com\nWrite to us: hi@project7iii.com\n\nHow to add a Zettel widget:\n1. Go to the Home Screen\n2. Long press to enter wiggle mode\n3. Tap the +\n4. Search for Zettel\n5. Add the Zettel widget of your choice\n\nNote: The widget will always show the Zettel you worked on last.\n\nChangelog:\n1.0 fixed and finished the app, 2024.\n0.1 made with ❤️ by Nils Mango (nilsmango.ch) in Switzerland, 2021-2022."
 
 func geoMagic(width: CGFloat, height: CGFloat, showingSheet: Bool, widgetSize: Zettel.ShowSize) -> (width: CGFloat, height: CGFloat) {
     if showingSheet {
