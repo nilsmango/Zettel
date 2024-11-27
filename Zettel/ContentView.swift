@@ -121,13 +121,13 @@ struct ContentView: View {
                                 }
                             }
                             
-                            AdView()
-                            
-                            Button(action: {
-                                // TODO: Add donation thing
-                            } ) {
-                                Label("Remove Ads & Support Us", systemImage: "heart")
-                            }
+//                            AdView()
+//                            
+//                            Button(action: {
+//                                // TODO: Add donation thing
+//                            } ) {
+//                                Label("Remove Ads & Support Us", systemImage: "heart")
+//                            }
                             
                             Button(action: { showingSheet = true } ) {
                                 Label("About", systemImage: "info.circle")
