@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78209CE02C94BE7200718294 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78209CDF2C94BE7200718294 /* AdView.swift */; };
+		78209CE22C94BEBD00718294 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78209CE12C94BEBD00718294 /* Ad.swift */; };
+		78209CE42C94BF5D00718294 /* ZettelAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78209CE32C94BF5D00718294 /* ZettelAds.swift */; };
 		78269D802763B8B90036B91D /* ExtentionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78269D7F2763B8B80036B91D /* ExtentionArray.swift */; };
-		7844D6072939149F00F2064B /* ZettelWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D6062939149F00F2064B /* ZettelWatchApp.swift */; };
-		7844D6092939149F00F2064B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D6082939149F00F2064B /* ContentView.swift */; };
-		7844D60B293914A000F2064B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7844D60A293914A000F2064B /* Assets.xcassets */; };
-		7844D60E293914A000F2064B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7844D60D293914A000F2064B /* Preview Assets.xcassets */; };
 		7844D61329393C9000F2064B /* WatchConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D61229393C9000F2064B /* WatchConnection.swift */; };
-		7844D61729393F1800F2064B /* PhoneConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D61629393CF400F2064B /* PhoneConnection.swift */; };
-		7844D6192939404300F2064B /* ExtensionUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844D6182939404300F2064B /* ExtensionUserDefaults.swift */; };
 		785AB46F273A692D000B329B /* Zettel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB46E273A692D000B329B /* Zettel.swift */; };
 		785AB471273A6B24000B329B /* ZettelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785AB470273A6B24000B329B /* ZettelData.swift */; };
 		786ABADE273D157600F97D37 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786ABADD273D157600F97D37 /* WidgetKit.framework */; };
@@ -68,8 +65,10 @@
 
 /* Begin PBXFileReference section */
 		780080202C8B3D7E00796EC1 /* ZettelWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ZettelWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		78209CDF2C94BE7200718294 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		78209CE12C94BEBD00718294 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		78209CE32C94BF5D00718294 /* ZettelAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelAds.swift; sourceTree = "<group>"; };
 		78269D7F2763B8B80036B91D /* ExtentionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionArray.swift; sourceTree = "<group>"; };
-		7844D6042939149F00F2064B /* 7III Zettel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7III Zettel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7844D6062939149F00F2064B /* ZettelWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZettelWatchApp.swift; sourceTree = "<group>"; };
 		7844D6082939149F00F2064B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7844D60A293914A000F2064B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,13 +104,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7844D6012939149F00F2064B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		786ABAD8273D157600F97D37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,9 +165,11 @@
 		785AB46D273A6911000B329B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				785AB470273A6B24000B329B /* ZettelData.swift */,
 				7844D61229393C9000F2064B /* WatchConnection.swift */,
 				785AB46E273A692D000B329B /* Zettel.swift */,
-				785AB470273A6B24000B329B /* ZettelData.swift */,
+				78209CE12C94BEBD00718294 /* Ad.swift */,
+				78209CE32C94BF5D00718294 /* ZettelAds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,7 +211,6 @@
 			children = (
 				788DBF2E2737CF96005D67BF /* Zettel.app */,
 				786ABADB273D157600F97D37 /* ZettelWidgetExtension.appex */,
-				7844D6042939149F00F2064B /* 7III Zettel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,10 +223,11 @@
 				788DBF312737CF96005D67BF /* ZettelApp.swift */,
 				78A071342764CC1A006A91E2 /* MainView.swift */,
 				788DBF332737CF96005D67BF /* ContentView.swift */,
-				78971D5A2C8D948B00F8FC20 /* Experiments */,
+				78209CDF2C94BE7200718294 /* AdView.swift */,
 				78FCF0122762119C0032E2DC /* ZettelHistory.swift */,
 				78FCF010276206050032E2DC /* ZettelView.swift */,
 				78971D572C8D896B00F8FC20 /* ZettelStack.swift */,
+				78971D5A2C8D948B00F8FC20 /* Experiments */,
 				78269D812763B8C00036B91D /* Helper */,
 				785AB46D273A6911000B329B /* Model */,
 				788DBF352737CF99005D67BF /* Assets.xcassets */,
@@ -263,23 +257,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7844D6032939149F00F2064B /* ZettelWatch Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7844D60F293914A000F2064B /* Build configuration list for PBXNativeTarget "ZettelWatch Watch App" */;
-			buildPhases = (
-				7844D6002939149F00F2064B /* Sources */,
-				7844D6012939149F00F2064B /* Frameworks */,
-				7844D6022939149F00F2064B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ZettelWatch Watch App";
-			productName = "ZettelWatch Watch App";
-			productReference = 7844D6042939149F00F2064B /* 7III Zettel.app */;
-			productType = "com.apple.product-type.application";
-		};
 		786ABADA273D157600F97D37 /* ZettelWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 786ABAED273D157800F97D37 /* Build configuration list for PBXNativeTarget "ZettelWidgetExtension" */;
@@ -326,9 +303,6 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					7844D6032939149F00F2064B = {
-						CreatedOnToolsVersion = 14.1;
-					};
 					786ABADA273D157600F97D37 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -352,21 +326,11 @@
 			targets = (
 				788DBF2D2737CF96005D67BF /* Zettel */,
 				786ABADA273D157600F97D37 /* ZettelWidgetExtension */,
-				7844D6032939149F00F2064B /* ZettelWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7844D6022939149F00F2064B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7844D60E293914A000F2064B /* Preview Assets.xcassets in Resources */,
-				7844D60B293914A000F2064B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		786ABAD9273D157600F97D37 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,17 +352,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7844D6002939149F00F2064B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7844D6092939149F00F2064B /* ContentView.swift in Sources */,
-				7844D6072939149F00F2064B /* ZettelWatchApp.swift in Sources */,
-				7844D6192939404300F2064B /* ExtensionUserDefaults.swift in Sources */,
-				7844D61729393F1800F2064B /* PhoneConnection.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		786ABAD7273D157600F97D37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78209CE42C94BF5D00718294 /* ZettelAds.swift in Sources */,
+				78209CE02C94BE7200718294 /* AdView.swift in Sources */,
 				78971D582C8D896B00F8FC20 /* ZettelStack.swift in Sources */,
 				788DBF342737CF96005D67BF /* ContentView.swift in Sources */,
 				7844D61329393C9000F2064B /* WatchConnection.swift in Sources */,
@@ -423,6 +378,7 @@
 				78971D5C2C8D949D00F8FC20 /* ReadingTextHeight.swift in Sources */,
 				78EB5339293A282300D6AFE4 /* Intents.intentdefinition in Sources */,
 				78971D562C8D86E200F8FC20 /* ScalableTextEditor.swift in Sources */,
+				78209CE22C94BEBD00718294 /* Ad.swift in Sources */,
 				78269D802763B8B90036B91D /* ExtentionArray.swift in Sources */,
 				78A071332764B3A2006A91E2 /* HelperFunctions.swift in Sources */,
 				785AB471273A6B24000B329B /* ZettelData.swift in Sources */,
@@ -444,72 +400,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		7844D610293914A000F2064B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = "ZettelWatch Watch App/ZettelWatch Watch App.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = A9H57996U3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.project7III.zettel1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.watchkitapp;
-				PRODUCT_NAME = "7III Zettel";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		7844D611293914A000F2064B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = "ZettelWatch Watch App/ZettelWatch Watch App.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"ZettelWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = A9H57996U3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.project7III.zettel1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.project7III.zettel1.watchkitapp;
-				PRODUCT_NAME = "7III Zettel";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
 		786ABAEB273D157800F97D37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -767,15 +657,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7844D60F293914A000F2064B /* Build configuration list for PBXNativeTarget "ZettelWatch Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7844D610293914A000F2064B /* Debug */,
-				7844D611293914A000F2064B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		786ABAED273D157800F97D37 /* Build configuration list for PBXNativeTarget "ZettelWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

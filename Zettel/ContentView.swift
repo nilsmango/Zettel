@@ -112,20 +112,30 @@ struct ContentView: View {
                                         .tag(type)
                                 }
                             }
+                            
+                            
                             Picker("Font Size", selection: $zettelData.zettel[0].fontSize) {
                                 ForEach(Zettel.FontSize.allCases) { type in
                                     Text(type.rawValue.capitalized + " Font")
                                         .tag(type)
                                 }
                             }
-                            Button(action: { showingSheet = true } ) {
-                                Label("About", systemImage: "info.circle")
-                            }
+                            
+                            AdView()
+                            
                             Button(action: {
                                 // TODO: Add donation thing
                             } ) {
-                                Label("Tip us 1 USD!", systemImage: "heart")
+                                Label("Remove Ads & Support Us", systemImage: "heart")
                             }
+                            
+                            Button(action: { showingSheet = true } ) {
+                                Label("About", systemImage: "info.circle")
+                            }
+                            
+                            
+                            
+                            
                         } label: {
                             Label("Options", systemImage: "ellipsis.circle.fill")
                                 .labelStyle(.iconOnly)

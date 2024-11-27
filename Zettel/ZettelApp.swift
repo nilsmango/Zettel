@@ -18,22 +18,22 @@ struct ZettelApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
     
-    var watchConnection = WatchConnection()
+//    var watchConnection = WatchConnection()
 
-    private func updateZettel() {
-        print("Trying to send list to watch")
-        if watchConnection.session.activationState == .activated {
-            
-            var zettelDictionary: [String : Any] = [:]
-                
-            let newZettel = zettelData.zettel.first?.text
-            
-            zettelDictionary["zettelPost"] = newZettel
-            
-            watchConnection.session.transferUserInfo(zettelDictionary)
-
-        }
-    }
+//    private func updateZettel() {
+//        print("Trying to send list to watch")
+//        if watchConnection.session.activationState == .activated {
+//            
+//            var zettelDictionary: [String : Any] = [:]
+//                
+//            let newZettel = zettelData.zettel.first?.text
+//            
+//            zettelDictionary["zettelPost"] = newZettel
+//            
+//            watchConnection.session.transferUserInfo(zettelDictionary)
+//
+//        }
+//    }
     
     
     var body: some Scene {
@@ -46,7 +46,7 @@ struct ZettelApp: App {
                 .onChange(of: scenePhase) { oldPhase, newPhase in
                     if newPhase == .inactive {
                         zettelData.save()
-                        updateZettel()
+//                        updateZettel()
                     }
                 }
         }
