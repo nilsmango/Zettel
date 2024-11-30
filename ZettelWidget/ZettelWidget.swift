@@ -7,34 +7,100 @@
 
 import WidgetKit
 import SwiftUI
+import CryptoKit
+import Security
 
 struct Provider: TimelineProvider {
+    private let keychainService = "group.zettel"
+    private let keychainAccount = "EncryptionKey"
+    private let keychainAccessGroup = "group.zettel"
     
-    private static var documentsFolder: URL {
-        let appIdentifier = "group.zettel"
-        return FileManager.default.containerURL(
-            forSecurityApplicationGroupIdentifier: appIdentifier)!
-    }
-    
-    private static var fileURL: URL {
-        return documentsFolder.appendingPathComponent("zettel.data")
-    }
-    
-    func load() -> [Zettel] {
+    private func saveKeyToKeychain(_ keyData: Data) throws {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
+            kSecAttrAccessGroup as String: keychainAccessGroup, // Use your App Group identifier
+            kSecValueData as String: keyData
+        ]
         
-        guard let data = try? Data(contentsOf: Self.fileURL) else {
-            print("Couldn't load data in intent handler")
-            return [Zettel(text: "Your notes on the Zettel", showSize: .small, fontSize: .normal)]
+        // Delete any existing key
+        SecItemDelete(query as CFDictionary)
+        
+        // Add new key
+        let status = SecItemAdd(query as CFDictionary, nil)
+        guard status == errSecSuccess else {
+            throw NSError(domain: "KeychainError", code: Int(status), userInfo: nil)
+        }
+    }
+    
+    private func getOrCreateEncryptionKey() throws -> SymmetricKey {
+        // Try to retrieve existing key from Keychain
+        if let existingKeyData = retrieveKeyFromKeychain() {
+            return SymmetricKey(data: existingKeyData)
         }
         
-        guard let zettel = try? JSONDecoder().decode([Zettel].self, from: data) else {
-            fatalError("Couldn't decode saved codes data")
-        }
-        
-        return zettel
-        
+        // Generate a new key if not found
+        let newKey = SymmetricKey(size: .bits256)
+        try saveKeyToKeychain(newKey.withUnsafeBytes { Data(Array($0)) })
+        return newKey
     }
     
+    // Decrypt data
+    private func decrypt(_ encryptedData: Data) throws -> Data {
+        let key = try getOrCreateEncryptionKey()
+        let sealedBox = try AES.GCM.SealedBox(combined: encryptedData)
+        return try AES.GCM.open(sealedBox, using: key)
+    }
+
+    // Retrieve key from Keychain
+    private func retrieveKeyFromKeychain() -> Data? {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
+            kSecAttrAccessGroup as String: keychainAccessGroup, // Use your App Group identifier
+            kSecReturnData as String: true
+        ]
+        
+        var result: AnyObject?
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        return status == errSecSuccess ? result as? Data : nil
+    }
+    
+    // Load and decrypt notes from file
+    func load(completion: @escaping ([Zettel]) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                // Read encrypted data from file
+                let fileURL = self.getDocumentsDirectory().appendingPathComponent("encrypted_zettel.data")
+                let encryptedData = try Data(contentsOf: fileURL)
+                
+                // Decrypt data
+                let decryptedData = try self.decrypt(encryptedData)
+                
+                // Decode JSON
+                let decryptedZettel = try JSONDecoder().decode([Zettel].self, from: decryptedData)
+                
+                DispatchQueue.main.async {
+                    completion(decryptedZettel)
+                }
+            } catch {
+                print("Error loading encrypted notes: \(error)")
+                DispatchQueue.main.async {
+                    completion([Zettel(text: "Your notes on the Zettel", showSize: .small, fontSize: .normal)])
+                }
+            }
+        }
+    }
+    
+    // Helper method to get documents directory
+    private func getDocumentsDirectory() -> URL {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: keychainService) else {
+            fatalError("Shared container could not be accessed.")
+        }
+        return containerURL
+    }
     
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), zettel: [Zettel(text: "Your notes on the Zettel. In a Zettel widget, on your Home Screen, for you to check and edit!", showSize: .small, fontSize: .compact)])
@@ -46,12 +112,14 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let zettel = load()
-        
-        let entries = [SimpleEntry(date: Date(), zettel: zettel)]
-        
-        let timeline = Timeline(entries: entries, policy: .never)
-        completion(timeline)
+        print("going to load zettel")
+        load() { zettel in
+            print("loaded zettel")
+            let entries = [SimpleEntry(date: Date(), zettel: zettel)]
+            
+            let timeline = Timeline(entries: entries, policy: .never)
+            completion(timeline)
+        }
     }
 }
 

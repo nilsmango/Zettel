@@ -17,6 +17,7 @@ class ZettelData: ObservableObject {
     
     private let keychainService = "group.zettel"
     private let keychainAccount = "EncryptionKey"
+    private let keychainAccessGroup = "group.zettel"
     
     func restoreLastDeletedZettel() {
         let restoredZettel = deletedZettel.last ?? Zettel(text: "We couldn't find your last note.", showSize: .small, fontSize: .compact)
@@ -29,6 +30,7 @@ class ZettelData: ObservableObject {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: keychainService,
             kSecAttrAccount as String: keychainAccount,
+            kSecAttrAccessGroup as String: keychainAccessGroup, // Use your App Group identifier
             kSecValueData as String: keyData
         ]
         
@@ -60,6 +62,7 @@ class ZettelData: ObservableObject {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: keychainService,
             kSecAttrAccount as String: keychainAccount,
+            kSecAttrAccessGroup as String: keychainAccessGroup, // Use your App Group identifier
             kSecReturnData as String: true
         ]
         
@@ -134,6 +137,9 @@ class ZettelData: ObservableObject {
     
     // Helper method to get documents directory
     private func getDocumentsDirectory() -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: keychainService) else {
+            fatalError("Shared container could not be accessed.")
+        }
+        return containerURL
     }
 }
