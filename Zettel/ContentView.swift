@@ -191,24 +191,24 @@ struct ContentView: View {
                                     .focused($editorIsFocused, equals: .field)
                                     .padding(.horizontal)
                                 
-                                VStack {
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        if zettelData.zettel[0].text.count > 0 {
-                                            Button(action: {
-                                                zettelData.zettel[0].text = ""
-                                                editorIsFocused = .field
-                                            }) {
-                                                Label("Erase Text", systemImage: "xmark.circle.fill")}
-                                            .labelStyle(.iconOnly)
-                                            .font(.system(size: CGFloat(14)))
-                                            .contentShape(Rectangle())
-                                            .padding(.horizontal, 9)
-                                            .padding(.bottom, 5)
-                                        }
-                                    }
-                                }
+//                                VStack {
+//                                    Spacer()
+//                                    HStack {
+//                                        Spacer()
+//                                        if zettelData.zettel[0].text.count > 0 {
+//                                            Button(action: {
+//                                                zettelData.zettel[0].text = ""
+//                                                editorIsFocused = .field
+//                                            }) {
+//                                                Label("Erase Text", systemImage: "xmark.circle.fill")}
+//                                            .labelStyle(.iconOnly)
+//                                            .font(.system(size: CGFloat(14)))
+//                                            .contentShape(Rectangle())
+//                                            .padding(.horizontal, 9)
+//                                            .padding(.bottom, 5)
+//                                        }
+//                                    }
+//                                }
                             }
                             
                             .frame(width: screenSize.width/2, height: screenSize.height/8)
