@@ -30,6 +30,8 @@ struct ContentView: View {
     private var textSize: CGFloat {
         return makeTextSize(for: zettelData.zettel.first?.fontSize ?? .huge)
     }
+    
+    let isPad = UIDevice.current.userInterfaceIdiom == .pad
         
     var body: some View {
         let frameSize = geoMagic(width: screenSize.width, height: screenSize.height, showingSheet: showingSheet, widgetSize: zettelData.zettel.first?.showSize ?? .small)
@@ -104,45 +106,9 @@ struct ContentView: View {
                             .font(.headline)
                             .padding(.leading, 5)
                         }
-                        
-                        Menu {
-                            Picker("Widget Size Shown", selection: $zettelData.zettel[0].showSize) {
-                                ForEach(Zettel.ShowSize.allCases) { type in
-                                    Text(type.rawValue.capitalized + " Widget")
-                                        .tag(type)
-                                }
-                            }
-                            
-                            
-                            Picker("Font Size", selection: $zettelData.zettel[0].fontSize) {
-                                ForEach(Zettel.FontSize.allCases) { type in
-                                    Text(type.rawValue.capitalized + " Font")
-                                        .tag(type)
-                                }
-                            }
-                            
-//                            AdView()
-//                            
-//                            Button(action: {
-//                                // TODO: Add donation thing
-//                            } ) {
-//                                Label("Remove Ads & Support Us", systemImage: "heart")
-//                            }
-                            
-                            Button(action: { showingSheet = true } ) {
-                                Label("About", systemImage: "info.circle")
-                            }
-                            
-                            
-                            
-                            
-                        } label: {
-                            Label("Options", systemImage: "ellipsis.circle.fill")
-                                .labelStyle(.iconOnly)
-                                .font(.title2)
-                                .contentShape(Rectangle())
+                        if !isPad {
+                            ZettelMenu(showingSheet: $showingSheet, zettel: $zettelData.zettel[0])
                         }
-                        
                     }
                     .padding(.trailing)
                 .padding(.top)
@@ -221,6 +187,11 @@ struct ContentView: View {
                             Label("Zettel History", systemImage: "square.stack.fill")}
                         .padding(.leading)
                         
+                        if isPad {
+                            ZettelMenu(showingSheet: $showingSheet, zettel: $zettelData.zettel[0], isPad: true)
+                                .padding(.leading)
+                        }
+
                     }
                     .font(.title)
                     .labelStyle(.iconOnly)
